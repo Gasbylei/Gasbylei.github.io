@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -105,34 +105,16 @@
 
 
 
-<meta name="description" content="1.在docker官网下载安装: docker for Mac
-2.打开doker，配置国内加速器，例如：Daocloud加速器添加到advanced/registry mirrors
-3.测试docker：
-docker ps查看当前容器
-docker run hello-world 出现hello，world则成功。
-4.安装oracle 11g:
-github地址：wnameless/ora">
+<meta name="description" content="归并算法的基本思想归并排序是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。“归并”的含义是将两个或两个以上的有序表组合成一个新的有序表。因此归并排序就是利用归并的思想来实现的，假设初始序列含有n个记录，则可以看成是n个有序的子序列，每个子序列的长度为1，然后两两归并，得到 (n+1)/2个长度为2或1的有序子序列；再两两归并，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在mac上如何使用docker安装oracle 11g?">
-<meta property="og:url" content="http://yoursite.com/2017/03/06/在mac上如何使用docker安装oracle-11g/index.html">
+<meta property="og:title" content="归并排序">
+<meta property="og:url" content="http://yoursite.com/2017/03/09/归并排序/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1.在docker官网下载安装: docker for Mac
-2.打开doker，配置国内加速器，例如：Daocloud加速器添加到advanced/registry mirrors
-3.测试docker：
-docker ps查看当前容器
-docker run hello-world 出现hello，world则成功。
-4.安装oracle 11g:
-github地址：wnameless/ora">
-<meta property="og:updated_time" content="2017-03-06T05:11:20.000Z">
+<meta property="og:description" content="归并算法的基本思想归并排序是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。“归并”的含义是将两个或两个以上的有序表组合成一个新的有序表。因此归并排序就是利用归并的思想来实现的，假设初始序列含有n个记录，则可以看成是n个有序的子序列，每个子序列的长度为1，然后两两归并，得到 (n+1)/2个长度为2或1的有序子序列；再两两归并，">
+<meta property="og:updated_time" content="2017-03-09T14:13:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在mac上如何使用docker安装oracle 11g?">
-<meta name="twitter:description" content="1.在docker官网下载安装: docker for Mac
-2.打开doker，配置国内加速器，例如：Daocloud加速器添加到advanced/registry mirrors
-3.测试docker：
-docker ps查看当前容器
-docker run hello-world 出现hello，world则成功。
-4.安装oracle 11g:
-github地址：wnameless/ora">
+<meta name="twitter:title" content="归并排序">
+<meta name="twitter:description" content="归并算法的基本思想归并排序是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。“归并”的含义是将两个或两个以上的有序表组合成一个新的有序表。因此归并排序就是利用归并的思想来实现的，假设初始序列含有n个记录，则可以看成是n个有序的子序列，每个子序列的长度为1，然后两两归并，得到 (n+1)/2个长度为2或1的有序子序列；再两两归并，">
 
 
 
@@ -160,13 +142,13 @@ github地址：wnameless/ora">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/06/在mac上如何使用docker安装oracle-11g/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/09/归并排序/"/>
 
 
 
 
 
-  <title> 在mac上如何使用docker安装oracle 11g? | Hexo </title>
+  <title> 归并排序 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -285,7 +267,7 @@ github地址：wnameless/ora">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/06/在mac上如何使用docker安装oracle-11g/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/09/归并排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gasbylei">
@@ -306,7 +288,7 @@ github地址：wnameless/ora">
             
             
               
-                在mac上如何使用docker安装oracle 11g?
+                归并排序
               
             
           </h2>
@@ -321,8 +303,8 @@ github地址：wnameless/ora">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-06T12:58:36+08:00">
-                2017-03-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T21:57:52+08:00">
+                2017-03-09
               </time>
             
 
@@ -357,34 +339,41 @@ github地址：wnameless/ora">
       
 
       
-        <p>1.在docker官网下载安装: <a href="https://www.docker.com/docker-mac" target="_blank" rel="external">docker for Mac</a></p>
-<p>2.打开doker，配置国内加速器，例如：<br><a href="https://www.daocloud.io/mirror#accelerator-doc" target="_blank" rel="external">Daocloud加速器</a><br>添加到advanced/registry mirrors</p>
-<p>3.测试docker：</p>
-<p><code>docker ps</code>查看当前容器</p>
-<p><code>docker run hello-world</code> 出现hello，world则成功。</p>
-<p>4.安装oracle 11g:</p>
-<p>github地址：<a href="https://github.com/wnameless/docker-oracle-xe-11g" target="_blank" rel="external">wnameless/oracle-xe-11g</a><br><code>docker pull wnameless/oracle-xe-11g</code></p>
-<p>5.运行oracle:</p>
-<p>首先运行oralce镜像,创建一个新的容器<br><code>docker run -d -p 49160:22 -p 49161:1521 wnameless/oracle-xe-11g</code></p>
-<p>如果要远程连接数据库：<br><code>docker run -d -p 49160:22 -p 49161:1521 -e ORACLE_ALLOW_REMOTE=true wnameless/oracle-xe-11g</code></p>
-<p>进入容器中<br><code>docker exec -it &lt;name&gt; bash (name= ContainerID)</code></p>
-<p>创建完容器，每次打开及关闭容器命令：</p>
-<p><code>Docker start  &lt;name&gt;</code></p>
-<p><code>Docker stop &lt;name&gt;</code></p>
-<p>连接数据库命令：<br><code>sqlplus system/oracle</code></p>
-<p>连接数据库的基本设置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">hostname: localhost</div><div class="line">port: 49161</div><div class="line">sid: xe</div><div class="line">username: system</div><div class="line">password: oracle</div></pre></td></tr></table></figure>
-<p>Password for SYS &amp; SYSTEM</p>
-<p><code>oracle</code></p>
-<p>Login by SSH</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh root@localhost -p 49160</div><div class="line">password: admin</div></pre></td></tr></table></figure>
-<p>Docker 常用命令：</p>
-<p><code>docker info</code> 查看docker信息</p>
-<p><code>Docker ps</code> 查看当前容器  后面加上<code>-a</code>查看所有容器</p>
-<p><code>docker rm</code> 删除容器</p>
-<p><code>docker images</code> 查看所有镜像</p>
-<p><code>docker rmi</code> 删除镜像</p>
+        <h2 id="归并算法的基本思想"><a href="#归并算法的基本思想" class="headerlink" title="归并算法的基本思想"></a>归并算法的基本思想</h2><p>归并排序是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。“归并”的含义是将两个或两个以上的有序表组合成一个新的有序表。因此归并排序就是利用归并的思想来实现的，假设初始序列含有n个记录，则可以看成是n个有序的子序列，每个子序列的长度为1，然后两两归并，得到 (n+1)/2个长度为2或1的有序子序列；再两两归并，….，如此重复，直至得到一个长度为n的有序序列位置，这种排序方法称为2路归并排序。</p>
+<a id="more"></a>
+<p>归并排序具体算法描述如下(递归版本)：</p>
+<ol>
+<li>Divide: 把长度为n的输入序列分成两个长度为n/2的子序列。</li>
+<li>Conquer: 对这两个子序列分别采用归并排序。</li>
+<li>Combine: 将两个排序好的子序列合并成一个最终的排序序列。</li>
+</ol>
+<h2 id="算法的语言描述："><a href="#算法的语言描述：" class="headerlink" title="算法的语言描述："></a>算法的语言描述：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">//将两个有序数列a[first...mid]和a[mid...last]合并void MergeArray(int a[], int first, int mid, int last, int temp[])&#123;int i = first, j = mid + 1;int m = mid, n = last;int k = 0;while ( i &lt;= m &amp;&amp; j &lt;= n )&#123;if (a[i] &lt;= a[j])temp[k++] = a[i++];elsetemp[k++] = a[j++];&#125;while (i &lt;= m)temp[k++] = a[i++];while (j &lt;= n)temp[k++] = a[j++];for (i = 0; i &lt; k; i++)a[first +1] = temp[i];&#125;//递归地完成归并排序void MergeSort(int a[], int first, int last, int temp[])&#123;if (first &lt; last)&#123;int mid = (first + last) / 2;mergesort(a, first, mid ,temp); //左边有序mergesort(a, mid + 1, last, temp); // 右边有序mergearray(a, first, mid, last, temp); //再将两个有序数列合并&#125;&#125;</div></pre></td></tr></table></figure>
+<h2 id="时间复杂度分析："><a href="#时间复杂度分析：" class="headerlink" title="时间复杂度分析："></a>时间复杂度分析：</h2><p>归并排序的效率是比较高的，设数列长为N，将数列分开成小数列一共要logN步，每步都是一个合并有序数列的过程，时间复杂度可以记为O(N)，故一共为O(N*logN)。因为归并排序每次都是在相邻的数据中进行操作，所以归并排序在O(N*logN)的几种排序方法（快速排序，归并排序，希尔排序，堆排序）也是效率比较高的。</p>
+<h2 id="列举算法的实际应用："><a href="#列举算法的实际应用：" class="headerlink" title="列举算法的实际应用："></a>列举算法的实际应用：</h2><p>给一个数组，如果该数组的一个子数组，元素之和大于等于给定的一个参数值（lower），小于等于一个给定的参数值（upper），那么这为一组解，求总共有几组解。（leetcode,327题）</p>
+<p>解题思路：</p>
+<p>首先预处理数组的前缀和，保存到数组 sum 中。然后用归并排序对数组 sum 进行排序，归并排序中有一步调用 merge 函数，将有序的左数组和右数组进行合并，而这时的右数组中的任一元素在 sum 数组中的位置正是在左数组任一元素之后！利用这，我们可以在 merge 前，对 left 数组和 right 数组满足条件的元素进行求解。</p>
+<pre><code>//返回 b[j] - a[i] 值在 [wlower, wupper] 范围内组数
+function getAns(a, b) {
+  var sum = 0;
+  var lena = a.length; 
+  var lenb = b.length;
+  var start = 0;
+  var end = 0;
 
+  for (var i = 0; i &lt; lenb; i++) {
+    // to get start
+    while (b[i] - a[start] &gt;= wlower) {
+      start++;
+    }
+    // to get end
+    while (b[i] - a[end] &gt; wupper) {
+      end++;
+    }
+    sum += start - end;
+  }
+  return sum;
+  }
+</code></pre>
       
     </div>
 
@@ -405,6 +394,12 @@ github地址：wnameless/ora">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
 
       
         
@@ -414,8 +409,8 @@ github地址：wnameless/ora">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/06/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/03/06/在mac上如何使用docker安装oracle-11g/" rel="next" title="在mac上如何使用docker安装oracle 11g?">
+                <i class="fa fa-chevron-left"></i> 在mac上如何使用docker安装oracle 11g?
               </a>
             
           </div>
@@ -423,10 +418,6 @@ github地址：wnameless/ora">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/09/归并排序/" rel="prev" title="归并排序">
-                归并排序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -473,8 +464,17 @@ github地址：wnameless/ora">
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://gasbylei.github.io/uploads/avatar.png"
@@ -538,6 +538,22 @@ github地址：wnameless/ora">
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#归并算法的基本思想"><span class="nav-number">1.</span> <span class="nav-text">归并算法的基本思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法的语言描述："><span class="nav-number">2.</span> <span class="nav-text">算法的语言描述：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间复杂度分析："><span class="nav-number">3.</span> <span class="nav-text">时间复杂度分析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列举算法的实际应用："><span class="nav-number">4.</span> <span class="nav-text">列举算法的实际应用：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
