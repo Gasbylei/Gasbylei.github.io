@@ -1,0 +1,795 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="PHP," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文内容来自于 Laravel-china 创始人 Summer
+
+所有 PSR 规范请见：https://psr.phphub.org/
+
+在这里为了自己方便查看，所以做了一些简单的总结。
+关于「能愿动词」的使用为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下： 
+
+必须(MUST) ：绝对，严格遵循，请照做，无条件遵守；
+
+一定不可(MUST NOT) ：禁令，严令禁止；
+
+应该(SH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PSR编码规范">
+<meta property="og:url" content="http://yoursite.com/2017/03/19/PSR编码规范/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本文内容来自于 Laravel-china 创始人 Summer
+
+所有 PSR 规范请见：https://psr.phphub.org/
+
+在这里为了自己方便查看，所以做了一些简单的总结。
+关于「能愿动词」的使用为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下： 
+
+必须(MUST) ：绝对，严格遵循，请照做，无条件遵守；
+
+一定不可(MUST NOT) ：禁令，严令禁止；
+
+应该(SH">
+<meta property="og:updated_time" content="2017-03-19T03:48:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PSR编码规范">
+<meta name="twitter:description" content="本文内容来自于 Laravel-china 创始人 Summer
+
+所有 PSR 规范请见：https://psr.phphub.org/
+
+在这里为了自己方便查看，所以做了一些简单的总结。
+关于「能愿动词」的使用为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下： 
+
+必须(MUST) ：绝对，严格遵循，请照做，无条件遵守；
+
+一定不可(MUST NOT) ：禁令，严令禁止；
+
+应该(SH">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/19/PSR编码规范/"/>
+
+
+
+
+
+  <title> PSR编码规范 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/19/PSR编码规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gasbylei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://gasbylei.github.io/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                PSR编码规范
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T09:33:11+08:00">
+                2017-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文内容来自于 <a href="https://laravel-china.org" target="_blank" rel="external">Laravel-china</a> 创始人 <a href="https://laravel-china.org/users/1" target="_blank" rel="external">Summer</a></p>
+<blockquote>
+<p>所有 PSR 规范请见：<a href="https://psr.phphub.org/" target="_blank" rel="external">https://psr.phphub.org/</a></p>
+</blockquote>
+<p>在这里为了自己方便查看，所以做了一些简单的总结。</p>
+<h2 id="关于「能愿动词」的使用"><a href="#关于「能愿动词」的使用" class="headerlink" title="关于「能愿动词」的使用"></a>关于「能愿动词」的使用</h2><p>为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下： </p>
+<ul>
+<li><p><code>必须(MUST)</code> ：绝对，严格遵循，请照做，无条件遵守；</p>
+</li>
+<li><p><code>一定不可(MUST NOT)</code> ：禁令，严令禁止；</p>
+</li>
+<li><code>应该(SHOULD)</code>  ：强烈建议这样做，但是不强求；</li>
+<li><code>不该(SHOULD NOT)</code> ：强烈不建议这样做，但是不强求；</li>
+<li><code>可以(MAY)</code> 和 <code>可选 (OPTIONAL)</code> ：选择性高一点，在这个文档内，此词语使用较少；</li>
+</ul>
+<h2 id="PSR-1-基本代码规范"><a href="#PSR-1-基本代码规范" class="headerlink" title="PSR-1 基本代码规范"></a><a href="https://laravel-china.org/topics/2078" target="_blank" rel="external">PSR-1 基本代码规范</a></h2><ul>
+<li><p>PHP代码文件 <strong>必须</strong> 以 <code>&lt;?php</code> 或 <code>&lt;?=</code> 标签开始；</p>
+</li>
+<li><p>PHP代码文件 <strong>必须</strong> 以 不带 <code>BOM</code> 的 <code>UTF-8</code> 编码；</p>
+</li>
+<li><p>PHP代码中 <strong>应该</strong> 只定义类、函数、常量等声明，或其他会产生 <code>副作用</code> 的操作（如：生成文件输出以及修改 .ini 配置文件等），二者只能选其一；</p>
+</li>
+<li><p>命名空间以及类 <strong>必须</strong> 符合 PSR 的自动加载规范：PSR-4 中的一个；</p>
+</li>
+<li><p>类的命名 <strong>必须</strong> 遵循 <code>StudlyCaps</code> 大写开头的驼峰命名规范；</p>
+</li>
+<li><p>类中的常量所有字母都 <strong>必须</strong> 大写，单词间用下划线分隔；</p>
+</li>
+<li><p>方法名称 <strong>必须</strong> 符合 <code>camelCase</code> 式的小写开头驼峰命名规范。</p>
+</li>
+</ul>
+<a id="more"></a>
+<p>针对<code>副作用</code>加以解释：<br>「副作用」(side effects) 一词的意思是，仅仅通过包含文件，不直接声明类、函数和常量等，而执行的逻辑操作。</p>
+<p>以下是一个 <code>反例</code>，一份包含「函数声明」以及产生「副作用」的代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// 「副作用」：修改 ini 配置</span></div><div class="line">ini_set(<span class="string">'error_reporting'</span>, E_ALL);</div><div class="line"></div><div class="line"><span class="comment">// 「副作用」：引入文件</span></div><div class="line"><span class="keyword">include</span> <span class="string">"file.php"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 「副作用」：生成输出</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"&lt;html&gt;\n"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 声明函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 函数主体部分</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>类的属性命名<code>可以</code>遵循：</p>
+<ul>
+<li>大写开头的驼峰式 (<code>$StudlyCaps</code>)</li>
+<li>小写开头的驼峰式 (<code>$camelCase</code>)</li>
+<li>下划线分隔式 (<code>$under_score</code>)</li>
+</ul>
+<h2 id="PSR-2-编码风格规范"><a href="#PSR-2-编码风格规范" class="headerlink" title="PSR-2 编码风格规范"></a><a href="https://laravel-china.org/topics/2079" target="_blank" rel="external">PSR-2 编码风格规范</a></h2><h3 id="编码风格指南"><a href="#编码风格指南" class="headerlink" title="编码风格指南"></a>编码风格指南</h3><p>本篇规范是 [PSR-1][] 基本代码规范的继承与扩展。</p>
+<p>本规范希望通过制定一系列规范化PHP代码的规则，以减少在浏览不同作者的代码时，因代码风格的不同而造成不便。</p>
+<p>当多名程序员在多个项目中合作时，就需要一个共同的编码规范， 而本文中的风格规范源自于多个不同项目代码风格的共同特性， 因此，本规范的价值在于我们都遵循这个编码风格，而不是在于它本身。</p>
+<h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><ul>
+<li><p>代码 <strong>必须</strong> 遵循 PSR-1 中的编码规范 。</p>
+</li>
+<li><p>代码 <strong>必须</strong> 使用4个空格符而不是「Tab 键」进行缩进。</p>
+</li>
+<li><p>每行的字符数 <strong>应该</strong> 软性保持在 80 个之内，理论上 <strong>一定不可</strong> 多于 120 个，但 <strong>一定不可</strong> 有硬性限制。</p>
+</li>
+<li><p>每个 <code>namespace</code> 命名空间声明语句和 <code>use</code> 声明语句块后面，<strong>必须</strong> 插入一个空白行。</p>
+</li>
+<li><p>类的开始花括号（<code>{</code>） <strong>必须</strong> 写在函数声明后自成一行，结束花括号（<code>}</code>）也 <strong>必须</strong> 写在函数主体后自成一行。</p>
+</li>
+<li><p>方法的开始花括号（<code>{</code>） 必须 写在函数声明后自成一行，结束花括号（<code>}</code>）也 必须 写在函数主体后自成一行。</p>
+</li>
+<li><p>类的属性和方法 <strong>必须</strong> 添加访问修饰符（<code>private</code>、<code>protected</code> 以及 <code>public</code>），<code>abstract</code> 以及 <code>final</code> <strong>必须</strong> 声明在访问修饰符之前，而 <code>static</code> <strong>必须</strong> 声明在访问修饰符之后。</p>
+</li>
+<li><p>控制结构的关键字后 <strong>必须</strong> 要有一个空格符，而调用方法或函数时则 <strong>一定不可</strong> 有。</p>
+</li>
+<li><p>控制结构的开始花括号（<code>{</code>） <strong>必须</strong> 写在声明的同一行，而结束花括号（<code>}</code>） <strong>必须</strong> 写在主体后自成一行。</p>
+</li>
+<li><p>控制结构的开始左括号后和结束右括号前，都 <strong>一定不可</strong> 有空格符。</p>
+</li>
+</ul>
+<p>以下例子程序简单地展示了以上大部分规范：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">namespace</span> <span class="title">Vendor</span>\<span class="title">Package</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">FooInterface</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">BarClass</span> <span class="title">as</span> <span class="title">Bar</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">OtherVendor</span>\<span class="title">OtherPackage</span>\<span class="title">BazClass</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> <span class="keyword">extends</span> <span class="title">Bar</span> <span class="keyword">implements</span> <span class="title">FooInterface</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">sampleFunction</span><span class="params">($a, $b = null)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> ($a === $b) &#123;</div><div class="line">            bar();</div><div class="line">        &#125; <span class="keyword">elseif</span> ($a &gt; $b) &#123;</div><div class="line">            $foo-&gt;bar($arg1);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            BazClass::bar($arg2, $arg3);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">final</span> <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">// 方法的内容</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>PHP所有 <a href="http://php.net/manual/en/reserved.keywords.php" target="_blank" rel="external">关键字</a> <strong>必须</strong> 全部小写。常量 <code>true</code>、<code>false</code> 和 <code>null</code> 也 <strong>必须</strong> 全部小写。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/15/学习CSS布局-二/" rel="next" title="学习CSS布局(二)">
+                <i class="fa fa-chevron-left"></i> 学习CSS布局(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://gasbylei.github.io/uploads/avatar.png"
+               alt="Gasbylei" />
+          <p class="site-author-name" itemprop="name">Gasbylei</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gasbylei" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于「能愿动词」的使用"><span class="nav-number">1.</span> <span class="nav-text">关于「能愿动词」的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PSR-1-基本代码规范"><span class="nav-number">2.</span> <span class="nav-text">PSR-1 基本代码规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PSR-2-编码风格规范"><span class="nav-number">3.</span> <span class="nav-text">PSR-2 编码风格规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编码风格指南"><span class="nav-number">3.1.</span> <span class="nav-text">编码风格指南</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概览"><span class="nav-number">3.2.</span> <span class="nav-text">概览</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gasbylei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
