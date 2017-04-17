@@ -346,21 +346,20 @@
         
           
             <p>github地址:<a href="https://github.com/barryvdh/laravel-ide-helper" target="_blank" rel="external">Laravel-ide-helper</a></p>
-<p>###how to use in project：</p>
-<ol>
-<li><p>首先在项目中引入：<br><code>composer require barryvdh/laravel-ide-helper</code></p>
+<h3 id="how-to-use-in-project："><a href="#how-to-use-in-project：" class="headerlink" title="how to use in project："></a>how to use in project：</h3><ol>
+<li><p>首先在项目中引入：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer require barryvdh/laravel-ide-helper</div></pre></td></tr></table></figure>
 </li>
 <li><p>安装完成后，在 <code>config/app.php</code> 添加以下内容到 <code>providers</code> 数组。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,</div></pre></td></tr></table></figure>
 </li>
-</ol>
-<p><code>Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,</code></p>
-<ol>
-<li><p>运行下面的命令生成代码对应文档：<br><code>php artisan ide-helper:generate</code></p>
+<li><p>运行下面的命令生成代码对应文档：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan ide-helper:generate</div></pre></td></tr></table></figure>
 </li>
 <li><p>将扩展包生成的相应代码结构文件，放入 <code>.gitignore</code>中</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.idea</div><div class="line">_ide_helper.php</div><div class="line">_ide_helper_models.php</div><div class="line">.phpstorm.meta.php</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.idea</div><div class="line">_ide_helper.php</div><div class="line">_ide_helper_models.php</div><div class="line">.phpstorm.meta.php</div></pre></td></tr></table></figure>
 
           
         
