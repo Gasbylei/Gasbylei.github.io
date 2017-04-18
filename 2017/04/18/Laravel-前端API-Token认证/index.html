@@ -105,34 +105,25 @@
 
 
 
-<meta name="description" content="github地址:Laravel-ide-helper
-how to use in project：
-首先在项目中引入：
- 1composer require barryvdh/laravel-ide-helper
+<meta name="description" content="本文内容来自于JellyBool的视频，地址: Laravel 实战开发知乎：前后端分离 API token 认证 
 
-安装完成后，在 config/app.php 添加以下内容到 providers 数组。
- 1Barryvdh\LaravelIdeHelper\IdeHelperServicePr">
+Laravel 前端API Token认证Laravel 的 API 认证提供了两种方式，一是使用 passport package，二是使用 token来进行认证，今天使用的是token方式来认证。
+查看Laravel源码TokenGuard.php可以看到   12$thi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Laravel-ide-helper 高效的IDE 智能提示插件">
-<meta property="og:url" content="http://yoursite.com/2017/04/17/Laravel-ide-helper-高效的IDE-智能提示插件/index.html">
+<meta property="og:title" content="Laravel 前端API Token认证">
+<meta property="og:url" content="http://yoursite.com/2017/04/18/Laravel-前端API-Token认证/index.html">
 <meta property="og:site_name" content="EasyBlog">
-<meta property="og:description" content="github地址:Laravel-ide-helper
-how to use in project：
-首先在项目中引入：
- 1composer require barryvdh/laravel-ide-helper
+<meta property="og:description" content="本文内容来自于JellyBool的视频，地址: Laravel 实战开发知乎：前后端分离 API token 认证 
 
-安装完成后，在 config/app.php 添加以下内容到 providers 数组。
- 1Barryvdh\LaravelIdeHelper\IdeHelperServicePr">
-<meta property="og:updated_time" content="2017-04-17T06:29:32.000Z">
+Laravel 前端API Token认证Laravel 的 API 认证提供了两种方式，一是使用 passport package，二是使用 token来进行认证，今天使用的是token方式来认证。
+查看Laravel源码TokenGuard.php可以看到   12$thi">
+<meta property="og:updated_time" content="2017-04-18T07:52:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Laravel-ide-helper 高效的IDE 智能提示插件">
-<meta name="twitter:description" content="github地址:Laravel-ide-helper
-how to use in project：
-首先在项目中引入：
- 1composer require barryvdh/laravel-ide-helper
+<meta name="twitter:title" content="Laravel 前端API Token认证">
+<meta name="twitter:description" content="本文内容来自于JellyBool的视频，地址: Laravel 实战开发知乎：前后端分离 API token 认证 
 
-安装完成后，在 config/app.php 添加以下内容到 providers 数组。
- 1Barryvdh\LaravelIdeHelper\IdeHelperServicePr">
+Laravel 前端API Token认证Laravel 的 API 认证提供了两种方式，一是使用 passport package，二是使用 token来进行认证，今天使用的是token方式来认证。
+查看Laravel源码TokenGuard.php可以看到   12$thi">
 
 
 
@@ -160,13 +151,13 @@ how to use in project：
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/17/Laravel-ide-helper-高效的IDE-智能提示插件/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/18/Laravel-前端API-Token认证/"/>
 
 
 
 
 
-  <title> Laravel-ide-helper 高效的IDE 智能提示插件 | EasyBlog </title>
+  <title> Laravel 前端API Token认证 | EasyBlog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -285,7 +276,7 @@ how to use in project：
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/17/Laravel-ide-helper-高效的IDE-智能提示插件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/18/Laravel-前端API-Token认证/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gasbylei">
@@ -306,7 +297,7 @@ how to use in project：
             
             
               
-                Laravel-ide-helper 高效的IDE 智能提示插件
+                Laravel 前端API Token认证
               
             
           </h2>
@@ -321,8 +312,8 @@ how to use in project：
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T14:19:07+08:00">
-                2017-04-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-18T15:34:45+08:00">
+                2017-04-18
               </time>
             
 
@@ -357,21 +348,26 @@ how to use in project：
       
 
       
-        <p>github地址:<a href="https://github.com/barryvdh/laravel-ide-helper" target="_blank" rel="external">Laravel-ide-helper</a></p>
-<h3 id="how-to-use-in-project："><a href="#how-to-use-in-project：" class="headerlink" title="how to use in project："></a>how to use in project：</h3><ol>
-<li><p>首先在项目中引入：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer require barryvdh/laravel-ide-helper</div></pre></td></tr></table></figure>
-</li>
-<li><p>安装完成后，在 <code>config/app.php</code> 添加以下内容到 <code>providers</code> 数组。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行下面的命令生成代码对应文档：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan ide-helper:generate</div></pre></td></tr></table></figure>
-</li>
-<li><p>将扩展包生成的相应代码结构文件，放入 <code>.gitignore</code>中</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.idea</div><div class="line">_ide_helper.php</div><div class="line">_ide_helper_models.php</div><div class="line">.phpstorm.meta.php</div></pre></td></tr></table></figure>
-</li>
-</ol>
+        <blockquote>
+<p>本文内容来自于JellyBool的视频，地址: <a href="https://www.laravist.com/series/build-a-zhihu-website-with-laravel/episodes/21" target="_blank" rel="external">Laravel 实战开发知乎：前后端分离 API token 认证 </a></p>
+</blockquote>
+<h1 id="Laravel-前端API-Token认证"><a href="#Laravel-前端API-Token认证" class="headerlink" title="Laravel 前端API Token认证"></a>Laravel 前端API Token认证</h1><p>Laravel 的 API 认证提供了两种方式，一是使用 <code>passport</code> package，二是使用 <code>token</code>来进行认证，今天使用的是<code>token</code>方式来认证。</p>
+<h3 id="查看Laravel源码TokenGuard-php可以看到"><a href="#查看Laravel源码TokenGuard-php可以看到" class="headerlink" title="查看Laravel源码TokenGuard.php可以看到"></a>查看Laravel源码<code>TokenGuard.php</code>可以看到</h3>   <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">$this</span>-&gt;inputKey = <span class="string">'api_token'</span>;</div><div class="line"><span class="keyword">$this</span>-&gt;storageKey = <span class="string">'api_token'</span>;</div></pre></td></tr></table></figure>
+<p>   laravel规定<code>inputKey</code>为<code>api_token</code>,因此我们创建为用户创建的字段名也得为<code>api_token</code>.</p>
+<h3 id="为用户表添加字段api-token"><a href="#为用户表添加字段api-token" class="headerlink" title="为用户表添加字段api_token"></a>为用户表添加字段<code>api_token</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; php artisan make:migration add_api_token_to_users --table=users</div></pre></td></tr></table></figure>
+<p>在<code>add_api_token_to_users.php</code>中修改如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Schema::table(<span class="string">'users'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;string(<span class="string">'api_token'</span>,<span class="number">64</span>)-&gt;unique();</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">down</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Schema::table(<span class="string">'users'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;dropColumn([<span class="string">'api_token'</span>]);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; php artisan migrate</div></pre></td></tr></table></figure>
+<p>进行上面操作后，在user表中可以看到已经多了一个<code>api_token</code>字段。</p>
+<a id="more"></a>
+<h3 id="这时我们需要在注册用户时为其随机生成一个api-token。"><a href="#这时我们需要在注册用户时为其随机生成一个api-token。" class="headerlink" title="这时我们需要在注册用户时为其随机生成一个api_token。"></a>这时我们需要在注册用户时为其随机生成一个<code>api_token</code>。</h3><p>进入<code>RegisterController.php</code>在<code>create</code>方法中加入如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'api_token'</span> =&gt;str_random(<span class="number">60</span>)</div></pre></td></tr></table></figure>
+<p>在<code>User.php</code>的<code>$fillable</code>字段中添加<code>api_token</code>表示其可以创建。</p>
+<h3 id="使用Vue组件，因此需要给vue发送请求时添加认证。"><a href="#使用Vue组件，因此需要给vue发送请求时添加认证。" class="headerlink" title="使用Vue组件，因此需要给vue发送请求时添加认证。"></a>使用<code>Vue</code>组件，因此需要给<code>vue</code>发送请求时添加认证。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Vue.http.interceptors.push((request, next) =&gt; &#123;</div><div class="line">request.headers.set(&apos;X-CSRF-TOKEN&apos;, Laravel.csrfToken);</div><div class="line">request.headers.set(&apos;Authorization&apos;, Laravel.apiToken);//这是添加的</div><div class="line"></div><div class="line">next();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>下面我们需要去<code>layout/app.blade.php</code>中设置 <code>Laravel.apiToken</code>，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> &lt;script&gt;</div><div class="line">    <span class="built_in">window</span>.Laravel = &lt;?php echo json_encode([</div><div class="line">        'csrfToken' =&gt; csrf_token(),</div><div class="line">    ]); ?&gt;;</div><div class="line">    Laravel.apiToken = "&#123;&#123; Auth::check() ? 'Bearer '.Auth::user()-&gt;api_token :  'Bearer ' &#125;&#125;";</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p><code>Laravel.apiToken</code>先判断用户是否登录，若登录则<code>apiToken</code>为<code>Bearer +api_token</code>，反之为<code>Bearer</code>。</p>
+<p>此时，API Token认证已经完成，可以去进行测试了！</p>
 
       
     </div>
@@ -408,8 +404,8 @@ how to use in project：
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/20/如何使用retrofit来获取api的数据/" rel="next" title="如何使用retrofit来获取api的数据">
-                <i class="fa fa-chevron-left"></i> 如何使用retrofit来获取api的数据
+              <a href="/2017/04/17/Laravel-ide-helper-高效的IDE-智能提示插件/" rel="next" title="Laravel-ide-helper 高效的IDE 智能提示插件">
+                <i class="fa fa-chevron-left"></i> Laravel-ide-helper 高效的IDE 智能提示插件
               </a>
             
           </div>
@@ -417,10 +413,6 @@ how to use in project：
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/18/Laravel-前端API-Token认证/" rel="prev" title="Laravel 前端API Token认证">
-                Laravel 前端API Token认证 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -551,7 +543,7 @@ how to use in project：
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-use-in-project："><span class="nav-number">1.</span> <span class="nav-text">how to use in project：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Laravel-前端API-Token认证"><span class="nav-number">1.</span> <span class="nav-text">Laravel 前端API Token认证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看Laravel源码TokenGuard-php可以看到"><span class="nav-number">1.0.1.</span> <span class="nav-text">查看Laravel源码TokenGuard.php可以看到</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为用户表添加字段api-token"><span class="nav-number">1.0.2.</span> <span class="nav-text">为用户表添加字段api_token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这时我们需要在注册用户时为其随机生成一个api-token。"><span class="nav-number">1.0.3.</span> <span class="nav-text">这时我们需要在注册用户时为其随机生成一个api_token。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Vue组件，因此需要给vue发送请求时添加认证。"><span class="nav-number">1.0.4.</span> <span class="nav-text">使用Vue组件，因此需要给vue发送请求时添加认证。</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
