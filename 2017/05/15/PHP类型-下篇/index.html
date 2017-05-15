@@ -1,0 +1,820 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="PHP," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文内容来自PHP手册
+
+PHP类型(下篇)Array 数组PHP 中的数组实际上是一个有序映射。映射是一种把 values 关联到 keys 的类型。此类型在很多方面做了优化，因此可以把它当成真正的数组，或列表（向量），散列表（是映射的一种实现），字典，集合，栈，队列以及更多可能性。由于数组元素的值也可以是另一个数组，树形结构和多维数组也是允许的
+语法定义数组 array()123456789">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP类型(下篇)">
+<meta property="og:url" content="http://yoursite.com/2017/05/15/PHP类型-下篇/index.html">
+<meta property="og:site_name" content="EasyBlog">
+<meta property="og:description" content="本文内容来自PHP手册
+
+PHP类型(下篇)Array 数组PHP 中的数组实际上是一个有序映射。映射是一种把 values 关联到 keys 的类型。此类型在很多方面做了优化，因此可以把它当成真正的数组，或列表（向量），散列表（是映射的一种实现），字典，集合，栈，队列以及更多可能性。由于数组元素的值也可以是另一个数组，树形结构和多维数组也是允许的
+语法定义数组 array()123456789">
+<meta property="og:updated_time" content="2017-05-15T11:03:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP类型(下篇)">
+<meta name="twitter:description" content="本文内容来自PHP手册
+
+PHP类型(下篇)Array 数组PHP 中的数组实际上是一个有序映射。映射是一种把 values 关联到 keys 的类型。此类型在很多方面做了优化，因此可以把它当成真正的数组，或列表（向量），散列表（是映射的一种实现），字典，集合，栈，队列以及更多可能性。由于数组元素的值也可以是另一个数组，树形结构和多维数组也是允许的
+语法定义数组 array()123456789">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/15/PHP类型-下篇/"/>
+
+
+
+
+
+  <title> PHP类型(下篇) | EasyBlog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">EasyBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/PHP类型-下篇/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gasbylei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://gasbylei.github.io/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EasyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                PHP类型(下篇)
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T18:58:49+08:00">
+                2017-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文内容来自<a href="http://php.net/manual/zh/language.types.php" target="_blank" rel="external">PHP手册</a></p>
+</blockquote>
+<h1 id="PHP类型-下篇"><a href="#PHP类型-下篇" class="headerlink" title="PHP类型(下篇)"></a>PHP类型(下篇)</h1><h3 id="Array-数组"><a href="#Array-数组" class="headerlink" title="Array 数组"></a>Array 数组</h3><p>PHP 中的数组实际上是一个有序映射。映射是一种把 values 关联到 keys 的类型。此类型在很多方面做了优化，因此可以把它当成真正的数组，或列表（向量），散列表（是映射的一种实现），字典，集合，栈，队列以及更多可能性。由于数组元素的值也可以是另一个数组，树形结构和多维数组也是允许的</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><h5 id="定义数组-array"><a href="#定义数组-array" class="headerlink" title="定义数组 array()"></a>定义数组 array()</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$array = <span class="keyword">array</span>(</div><div class="line">    <span class="string">"foo"</span> =&gt; <span class="string">"bar"</span>,</div><div class="line">    <span class="string">"bar"</span> =&gt; <span class="string">"foo"</span>,</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">// 自 PHP 5.4 起</span></div><div class="line">$array = [</div><div class="line">    <span class="string">"foo"</span> =&gt; <span class="string">"bar"</span>,</div><div class="line">    <span class="string">"bar"</span> =&gt; <span class="string">"foo"</span>,</div><div class="line">];</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p><code>key</code> 可以是 <code>integer</code> 或者 <code>string</code>。<code>value</code> 可以是任意类型。</p>
+<p>此外 <code>key</code> 会有如下的强制转换：</p>
+<ul>
+<li>包含有合法整型值的字符串会被转换为整型。例如键名<code>&quot;8&quot;</code> 实际会被储存为 <code>8</code>。但是 <code>&quot;08&quot;</code> 则不会强制转换，因为其不是一个合法的十进制数值。</li>
+<li>浮点数也会被转换为整型，意味着其小数部分会被舍去。例如键名<code>8.7</code> 实际会被储存为 <code>8</code>。</li>
+<li>布尔值也会被转换成整型。即键名 <code>true</code> 实际会被储存为 <code>1</code> 而键名 <code>false</code> 会被储存为 <code>0</code>。</li>
+<li><code>Null</code> 会被转换为空字符串，即键名 <code>null</code> 实际会被储存为 <code>&quot;&quot;</code>。</li>
+<li>数组和对象不能被用为键名。坚持这么做会导致警告：<code>Illegal offset type</code>。</li>
+</ul>
+<a id="more"></a>
+<p>如果在数组定义中多个单元都使用了同一个键名，则只使用了最后一个，之前的都被覆盖了。</p>
+<p>Example #1 类型强制与覆盖示例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$array = <span class="keyword">array</span>(</div><div class="line">    <span class="number">1</span>    =&gt; <span class="string">"a"</span>,</div><div class="line">    <span class="string">"1"</span>  =&gt; <span class="string">"b"</span>,</div><div class="line">    <span class="number">1.5</span>  =&gt; <span class="string">"c"</span>,</div><div class="line">    <span class="keyword">true</span> =&gt; <span class="string">"d"</span>,</div><div class="line">);</div><div class="line">var_dump($array);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>以上输出：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">array</span>(<span class="number">1</span>) &#123;</div><div class="line">  [<span class="number">1</span>]=&gt;</div><div class="line">  string(<span class="number">1</span>) <span class="string">"d"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上例中所有的键名都被强制转换为 1，则每一个新单元都会覆盖前一个的值，最后剩下的只有一个 “d”。</p>
+<p>PHP 数组可以同时含有 <code>integer</code> 和 <code>string</code> 类型的键名，因为 <code>PHP</code> 实际并不区分索引数组和关联数组。</p>
+<p>如果对给出的值没有指定键名，则取当前最大的整数索引值，而新的键名将是该值加一。如果指定的键名已经有了值，则该值会被覆盖。</p>
+<p><code>key</code> 为可选项。如果未指定，<code>PHP</code> 将自动使用之前用过的最大 <code>integer</code> 键名加上 1 作为新的键名。</p>
+<p>Example #2 仅对部分单元指定键名</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$array = <span class="keyword">array</span>(</div><div class="line">         <span class="string">"a"</span>,</div><div class="line">         <span class="string">"b"</span>,</div><div class="line">    <span class="number">6</span> =&gt; <span class="string">"c"</span>,</div><div class="line">         <span class="string">"d"</span>,</div><div class="line">);</div><div class="line">var_dump($array);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>以上会输出：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">array</span>(<span class="number">4</span>) &#123;</div><div class="line">  [<span class="number">0</span>]=&gt;</div><div class="line">  string(<span class="number">1</span>) <span class="string">"a"</span></div><div class="line">  [<span class="number">1</span>]=&gt;</div><div class="line">  string(<span class="number">1</span>) <span class="string">"b"</span></div><div class="line">  [<span class="number">6</span>]=&gt;</div><div class="line">  string(<span class="number">1</span>) <span class="string">"c"</span></div><div class="line">  [<span class="number">7</span>]=&gt;</div><div class="line">  string(<span class="number">1</span>) <span class="string">"d"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以看到最后一个值 “d” 被自动赋予了键名 7。这是由于之前最大的整数键名是 6。</p>
+<h5 id="用方括号语法访问数组单元"><a href="#用方括号语法访问数组单元" class="headerlink" title="用方括号语法访问数组单元"></a>用方括号语法访问数组单元</h5><p>数组单元可以通过<code>array[key]</code>语法来访问。</p>
+<p>Example #3 访问数组单元</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$array = <span class="keyword">array</span>(</div><div class="line">    <span class="string">"foo"</span> =&gt; <span class="string">"bar"</span>,</div><div class="line">    <span class="number">42</span>    =&gt; <span class="number">24</span>,</div><div class="line">    <span class="string">"multi"</span> =&gt; <span class="keyword">array</span>(</div><div class="line">         <span class="string">"dimensional"</span> =&gt; <span class="keyword">array</span>(</div><div class="line">             <span class="string">"array"</span> =&gt; <span class="string">"foo"</span></div><div class="line">         )</div><div class="line">    )</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">//注释为输出值</span></div><div class="line">var_dump($array[<span class="string">"foo"</span>]); <span class="comment">//string(3) "bar"</span></div><div class="line">var_dump($array[<span class="number">42</span>]);   <span class="comment">//int(24)</span></div><div class="line">var_dump($array[<span class="string">"multi"</span>][<span class="string">"dimensional"</span>][<span class="string">"array"</span>]);  <span class="comment">//string(3) "foo"</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="用方括号的语法新建／修改"><a href="#用方括号的语法新建／修改" class="headerlink" title="用方括号的语法新建／修改"></a>用方括号的语法新建／修改</h5><p>可以通过明示地设定其中的值来修改一个已有数组。</p>
+<p>这是通过在方括号内指定键名来给数组赋值实现的。也可以省略键名，在这种情况下给变量名加上一对空的方括号（[]）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$arr[key] = value;</div><div class="line">$arr[] = value;</div><div class="line">// key 可以是 integer 或 string</div><div class="line">// value 可以是任意类型的值</div></pre></td></tr></table></figure>
+<p>如果 <code>$arr</code> 还不存在，将会新建一个，这也是另一种新建数组的方法。不过并不鼓励这样做，因为如果 <code>$arr</code> 已经包含有值（例如来自请求变量的 string）则此值会保留而 [] 实际上代表着字符串访问运算符。初始化变量的最好方式是直接给其赋值。。</p>
+<p>要修改某个值，通过其键名给该单元赋一个新值。要删除某键值对，对其调用 unset() 函数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$arr = <span class="keyword">array</span>(<span class="number">5</span> =&gt; <span class="number">1</span>, <span class="number">12</span> =&gt; <span class="number">2</span>);</div><div class="line"></div><div class="line">$arr[] = <span class="number">56</span>;    <span class="comment">// This is the same as $arr[13] = 56;</span></div><div class="line">                <span class="comment">// at this point of the script</span></div><div class="line"></div><div class="line">$arr[<span class="string">"x"</span>] = <span class="number">42</span>; <span class="comment">// This adds a new element to</span></div><div class="line">                <span class="comment">// the array with key "x"</span></div><div class="line">                </div><div class="line"><span class="keyword">unset</span>($arr[<span class="number">5</span>]); <span class="comment">// This removes the element from the array</span></div><div class="line"></div><div class="line"><span class="keyword">unset</span>($arr);    <span class="comment">// This deletes the whole array</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="实用函数"><a href="#实用函数" class="headerlink" title="实用函数"></a>实用函数</h4><p><code>unset()</code> 函数允许删除数组中的某个键。但要注意数组将不会重建索引。如果需要删除后重建索引，可以用 <code>array_values()</code>函数。</p>
+<p><code>foreach</code> 控制结构是专门用于数组的。它提供了一个简单的方法来遍历数组。</p>
+<h4 id="转换为数组"><a href="#转换为数组" class="headerlink" title="转换为数组"></a>转换为数组</h4><p>对于任意 <code>integer</code>，<code>float</code>，<code>string</code>，<code>boolean</code> 和 <code>resource</code> 类型，如果将一个值转换为数组，将得到一个仅有一个元素的数组，其下标为 0，该元素即为此标量的值。换句话说，<code>(array)$scalarValue</code> 与<code>array($scalarValue)</code> 完全一样。</p>
+<p>如果一个 <code>object</code> 类型转换为 <code>array</code>，则结果为一个数组，其单元为该对象的属性。键名将为成员变量名，不过有几点例外：整数属性不可访问；私有变量前会加上类名作前缀；保护变量前会加上一个 ‘*’ 做前缀。这些前缀的前后都各有一个 NULL 字符。这会导致一些不可预知的行为：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> $A; <span class="comment">// This will become '\0A\0A'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> $A; <span class="comment">// This will become '\0B\0A'</span></div><div class="line">    <span class="keyword">public</span> $AA; <span class="comment">// This will become 'AA'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">var_dump((<span class="keyword">array</span>) <span class="keyword">new</span> B());</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>上例会有两个键名为 ‘AA’，不过其中一个实际上是 ‘\0A\0A’。</p>
+<p>将 NULL 转换为 array 会得到一个空的数组。</p>
+<h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><p>可以用 <code>array_diff()</code> 和数组运算符来比较数组。</p>
+<p>array_diff — 计算数组的差集</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">array array_diff ( array $array1 , array $array2 [, array $... ] )</div></pre></td></tr></table></figure>
+<p>对比 <code>array1</code> 和其他一个或者多个数字，返回在 <code>array1</code> 中但是不在其他 <code>array</code> 里的值。</p>
+<p>Example #1 array_diff() 例子</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$array1 = <span class="keyword">array</span>(<span class="string">"a"</span> =&gt; <span class="string">"green"</span>, <span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"red"</span>);</div><div class="line">$array2 = <span class="keyword">array</span>(<span class="string">"b"</span> =&gt; <span class="string">"green"</span>, <span class="string">"yellow"</span>, <span class="string">"red"</span>);</div><div class="line">$result = array_diff($array1, $array2);</div><div class="line"></div><div class="line">print_r($result);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>在 $array1 中多次出现的值一样处理，输出结果为：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Array</span></div><div class="line">(</div><div class="line">    [<span class="number">1</span>] =&gt; blue</div><div class="line">)</div></pre></td></tr></table></figure>
+<h3 id="Object-对象"><a href="#Object-对象" class="headerlink" title="Object 对象"></a>Object 对象</h3><h4 id="对象初始化"><a href="#对象初始化" class="headerlink" title="对象初始化"></a>对象初始化</h4><p>要创建一个新的对象 <code>object</code>，使用 <code>new</code> 语句实例化一个类：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">foo</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">do_foo</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">"Doing foo."</span>; </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$bar = <span class="keyword">new</span> foo;</div><div class="line">$bar-&gt;do_foo();</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="转换为对象"><a href="#转换为对象" class="headerlink" title="转换为对象"></a>转换为对象</h4><p>如果将一个对象转换成对象，它将不会有任何变化。如果其它任何类型的值被转换成对象，将会创建一个内置类 <code>stdClass</code> 的实例。如果该值为 <code>NULL</code>，则新的实例为空。 <code>array</code> 转换成 <code>object</code> 将使键名成为属性名并具有相对应的值，除了数字键，不迭代就无法被访问。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$obj = (object) <span class="keyword">array</span>(<span class="string">'1'</span> =&gt; <span class="string">'foo'</span>);</div><div class="line">var_dump(<span class="keyword">isset</span>($obj-&gt;&#123;<span class="string">'1'</span>&#125;)); <span class="comment">// outputs 'bool(false)'</span></div><div class="line">var_dump(key($obj)); <span class="comment">// outputs 'int(1)'</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>对于其他值，会包含进成员变量名 <code>scalar</code>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$obj = (object) <span class="string">'ciao'</span>;</div><div class="line"><span class="keyword">echo</span> $obj-&gt;scalar;  <span class="comment">// outputs 'ciao'</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Resource-资源类型"><a href="#Resource-资源类型" class="headerlink" title="Resource 资源类型"></a>Resource 资源类型</h3><p>资源 <code>resource</code> 是一种特殊变量，保存了到外部资源的一个引用。资源是通过专门的函数来建立和使用的。所有这些函数及其相应资源类型见附录。</p>
+<h4 id="转换为资源"><a href="#转换为资源" class="headerlink" title="转换为资源"></a>转换为资源</h4><p>由于资源类型变量保存有为打开文件、数据库连接、图形画布区域等的特殊句柄，因此将其它类型的值转换为资源没有意义。</p>
+<h4 id="释放资源"><a href="#释放资源" class="headerlink" title="释放资源"></a>释放资源</h4><p>引用计数系统是 Zend 引擎的一部分，可以自动检测到一个资源不再被引用了（和 Java 一样）。这种情况下此资源使用的所有外部资源都会被垃圾回收系统释放。因此，很少需要手工释放内存。</p>
+<h3 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h3><p>特殊的 <code>NULL</code> 值表示一个变量没有值。<code>NULL</code> 类型唯一可能的值就是 <code>NULL</code>。</p>
+<p>在下列情况下一个变量被认为是 <code>NULL</code>：</p>
+<ul>
+<li><p>被赋值为 NULL。</p>
+</li>
+<li><p>尚未被赋值。</p>
+</li>
+<li><p>被 unset()。</p>
+</li>
+</ul>
+<p>unset — 释放给定的变量</p>
+<p>unset() 销毁指定的变量。</p>
+<p>unset() 在函数中的行为会依赖于想要销毁的变量的类型而有所不同。</p>
+<p>如果在函数中 unset() 一个全局变量，则只是局部变量被销毁，而在调用环境中的变量将保持调用 unset() 之前一样的值。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">destroy_foo</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">global</span> $foo;</div><div class="line">    <span class="keyword">unset</span>($foo);</div><div class="line">&#125;</div><div class="line"></div><div class="line">$foo = <span class="string">'bar'</span>;</div><div class="line">destroy_foo();</div><div class="line"><span class="keyword">echo</span> $foo;</div><div class="line"><span class="meta">?&gt;</span></div><div class="line"></div><div class="line">以上例程会输出：</div><div class="line">bar</div></pre></td></tr></table></figure>
+<h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><p><code>NULL</code> 类型只有一个值，就是不区分大小写的常量 <code>NULL</code>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$var = <span class="keyword">NULL</span>;       </div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>is_null — 检测变量是否为 NULL</p>
+<h4 id="转换到-NULL"><a href="#转换到-NULL" class="headerlink" title="转换到 NULL"></a>转换到 NULL</h4><p>使用 (unset) $var 将一个变量转换为 null 将不会删除该变量或 <code>unset</code> 其值。仅是返回 <code>NULL</code> 值而已。</p>
+<h3 id="Callback-Callable-类型"><a href="#Callback-Callable-类型" class="headerlink" title="Callback / Callable 类型"></a>Callback / Callable 类型</h3><p>自 PHP 5.4 起可用 callable 类型指定回调类型 callback。本文档基于同样理由使用 callback 类型信息。</p>
+<p>一些函数如 call_user_func() 或 usort() 可以接受用户自定义的回调函数作为参数。回调函数不止可以是简单函数，还可以是对象的方法，包括静态类方法。</p>
+<h4 id="传递"><a href="#传递" class="headerlink" title="传递"></a>传递</h4><p>PHP是将函数以string形式传递的。 可以使用任何内置或用户自定义函数，但除了语言结构例如：array()，echo，empty()，eval()，exit()，isset()，list()，print 或 unset()。</p>
+<p>一个已实例化的 object 的方法被作为 array 传递，下标 0 包含该 object，下标 1 包含方法名。 在同一个类里可以访问 protected 和 private 方法。</p>
+<p>静态类方法也可不经实例化该类的对象而传递，只要在下标 0 中包含类名而不是对象。自 PHP 5.2.3 起，也可以传递 ‘ClassName::methodName’。</p>
+<p>除了普通的用户自定义函数外，也可传递 匿名函数 给回调参数。</p>
+<p>Example #1 回调函数示例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span> </div><div class="line"></div><div class="line"><span class="comment">// An example callback function</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_callback_function</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">'hello world!'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// An example callback method</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">myCallbackMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">'Hello World!'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Type 1: Simple callback</span></div><div class="line">call_user_func(<span class="string">'my_callback_function'</span>); </div><div class="line"></div><div class="line"><span class="comment">// Type 2: Static class method call</span></div><div class="line">call_user_func(<span class="keyword">array</span>(<span class="string">'MyClass'</span>, <span class="string">'myCallbackMethod'</span>)); </div><div class="line"></div><div class="line"><span class="comment">// Type 3: Object method call</span></div><div class="line">$obj = <span class="keyword">new</span> MyClass();</div><div class="line">call_user_func(<span class="keyword">array</span>($obj, <span class="string">'myCallbackMethod'</span>));</div><div class="line"></div><div class="line"><span class="comment">// Type 4: Static class method call (As of PHP 5.2.3)</span></div><div class="line">call_user_func(<span class="string">'MyClass::myCallbackMethod'</span>);</div><div class="line"></div><div class="line"><span class="comment">// Type 5: Relative static class method call (As of PHP 5.3.0)</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">"A\n"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">"B\n"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">call_user_func(<span class="keyword">array</span>(<span class="string">'B'</span>, <span class="string">'parent::who'</span>)); <span class="comment">// A</span></div><div class="line"></div><div class="line"><span class="comment">// Type 6: Objects implementing __invoke can be used as callables (since PHP 5.3)</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__invoke</span><span class="params">($name)</span> </span>&#123;</div><div class="line">        <span class="keyword">echo</span> <span class="string">'Hello '</span>, $name, <span class="string">"\n"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$c = <span class="keyword">new</span> C();</div><div class="line">call_user_func($c, <span class="string">'PHP!'</span>);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>Example #2 使用 Closure 的示例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// Our closure</span></div><div class="line">$double = <span class="function"><span class="keyword">function</span><span class="params">($a)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> $a * <span class="number">2</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// This is our range of numbers</span></div><div class="line">$numbers = range(<span class="number">1</span>, <span class="number">5</span>);</div><div class="line"></div><div class="line"><span class="comment">// Use the closure as a callback here to </span></div><div class="line"><span class="comment">// double the size of each element in our </span></div><div class="line"><span class="comment">// range</span></div><div class="line">$new_numbers = array_map($double, $numbers);</div><div class="line"></div><div class="line"><span class="keyword">print</span> implode(<span class="string">' '</span>, $new_numbers);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>以上例程会输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2 4 6 8 10</div></pre></td></tr></table></figure>
+<h3 id="类型转换的判别"><a href="#类型转换的判别" class="headerlink" title="类型转换的判别"></a>类型转换的判别</h3><p>PHP 在变量定义中不需要（或不支持）明确的类型定义；变量类型是根据使用该变量的上下文所决定的。也就是说，如果把一个 string 值赋给变量 $var，$var 就成了一个 string。如果又把一个integer 赋给 $var，那它就成了一个integer。</p>
+<p>PHP 的自动类型转换的一个例子是乘法运算符“*”。如果任何一个操作数是float，则所有的操作数都被当成float，结果也是float。否则操作数会被解释为integer，结果也是integer。注意这并没有改变这些操作数本身的类型；改变的仅是这些操作数如何被求值以及表达式本身的类型。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$foo = <span class="string">"1"</span>;  <span class="comment">// $foo 是字符串 (ASCII 49)</span></div><div class="line">$foo *= <span class="number">2</span>;   <span class="comment">// $foo 现在是一个整数 (2)</span></div><div class="line">$foo = $foo * <span class="number">1.3</span>;  <span class="comment">// $foo 现在是一个浮点数 (2.6)</span></div><div class="line">$foo = <span class="number">5</span> * <span class="string">"10 Little Piggies"</span>; <span class="comment">// $foo 是整数 (50)</span></div><div class="line">$foo = <span class="number">5</span> * <span class="string">"10 Small Pigs"</span>;     <span class="comment">// $foo 是整数 (50)</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>自动转换为 数组 的行为目前没有定义。</p>
+<p>此外，由于 PHP 支持使用和数组下标同样的语法访问字符串下标，以下例子在所有 PHP 版本中都有效：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$a    = <span class="string">'car'</span>; <span class="comment">// $a is a string</span></div><div class="line">$a[<span class="number">0</span>] = <span class="string">'b'</span>;   <span class="comment">// $a is still a string</span></div><div class="line"><span class="keyword">echo</span> $a;       <span class="comment">// bar</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="类型强制转换"><a href="#类型强制转换" class="headerlink" title="类型强制转换"></a>类型强制转换</h4><p>PHP 中的类型强制转换和 C 中的非常像：在要转换的变量之前加上用括号括起来的目标类型。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$foo = <span class="number">10</span>;   <span class="comment">// $foo is an integer</span></div><div class="line">$bar = (boolean) $foo;   <span class="comment">// $bar is a boolean</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>允许的强制转换有：</p>
+<ul>
+<li>(int), (integer) - 转换为整形 integer</li>
+<li>(bool), (boolean) - 转换为布尔类型 boolean</li>
+<li>(float), (double), (real) - 转换为浮点型 float</li>
+<li>(string) - 转换为字符串 string</li>
+<li>(array) - 转换为数组 array</li>
+<li>(object) - 转换为对象 object</li>
+<li>(unset) - 转换为 NULL (PHP 5)</li>
+</ul>
+<p>(binary) 转换和 b 前缀转换支持为 PHP 5.2.1 新增。</p>
+<p>注意在括号内允许有空格和制表符，所以下面两个例子功能相同：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$foo = (int) $bar;</div><div class="line">$foo = ( int ) $bar;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>将字符串文字和变量转换为二进制字符串：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$binary = (binary)$string;</div><div class="line">$binary = <span class="string">b"binary string"</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>可以将变量放置在双引号中的方式来代替将变量转换成字符串：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$foo = <span class="number">10</span>;            <span class="comment">// $foo 是一个整数</span></div><div class="line">$str = <span class="string">"$foo"</span>;        <span class="comment">// $str 是一个字符串</span></div><div class="line">$fst = (string) $foo; <span class="comment">// $fst 也是一个字符串</span></div><div class="line"></div><div class="line"><span class="comment">// 输出 "they are the same"</span></div><div class="line"><span class="keyword">if</span> ($fst === $str) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"they are the same"</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/15/PHP类型-上篇/" rel="next" title="PHP类型(上篇)">
+                <i class="fa fa-chevron-left"></i> PHP类型(上篇)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://gasbylei.github.io/uploads/avatar.png"
+               alt="Gasbylei" />
+          <p class="site-author-name" itemprop="name">Gasbylei</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gasbylei" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP类型-下篇"><span class="nav-number">1.</span> <span class="nav-text">PHP类型(下篇)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-数组"><span class="nav-number">1.0.1.</span> <span class="nav-text">Array 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义数组-array"><span class="nav-number">1.0.1.1.1.</span> <span class="nav-text">定义数组 array()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用方括号语法访问数组单元"><span class="nav-number">1.0.1.1.2.</span> <span class="nav-text">用方括号语法访问数组单元</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用方括号的语法新建／修改"><span class="nav-number">1.0.1.1.3.</span> <span class="nav-text">用方括号的语法新建／修改</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实用函数"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">实用函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换为数组"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">转换为数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-对象"><span class="nav-number">1.0.2.</span> <span class="nav-text">Object 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对象初始化"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">对象初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换为对象"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">转换为对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resource-资源类型"><span class="nav-number">1.0.3.</span> <span class="nav-text">Resource 资源类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转换为资源"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">转换为资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#释放资源"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">释放资源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NULL"><span class="nav-number">1.0.4.</span> <span class="nav-text">NULL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-1"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换到-NULL"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">转换到 NULL</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Callback-Callable-类型"><span class="nav-number">1.0.5.</span> <span class="nav-text">Callback / Callable 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传递"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">传递</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换的判别"><span class="nav-number">1.0.6.</span> <span class="nav-text">类型转换的判别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类型强制转换"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">类型强制转换</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gasbylei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

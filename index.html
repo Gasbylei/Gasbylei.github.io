@@ -268,6 +268,299 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/PHP类型-下篇/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gasbylei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://gasbylei.github.io/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EasyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/15/PHP类型-下篇/" itemprop="url">
+                  PHP类型(下篇)
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T18:58:49+08:00">
+                2017-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>本文内容来自<a href="http://php.net/manual/zh/language.types.php">PHP手册</a></p>
+</blockquote>
+<h1 id="PHP类型-下篇"><a href="#PHP类型-下篇" class="headerlink" title="PHP类型(下篇)"></a>PHP类型(下篇)</h1><h3 id="Array-数组"><a href="#Array-数组" class="headerlink" title="Array 数组"></a>Array 数组</h3><p>PHP 中的数组实际上是一个有序映射。映射是一种把 values 关联到 keys 的类型。此类型在很多方面做了优化，因此可以把它当成真正的数组，或列表（向量），散列表（是映射的一种实现），字典，集合，栈，队列以及更多可能性。由于数组元素的值也可以是另一个数组，树形结构和多维数组也是允许的</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><h5 id="定义数组-array"><a href="#定义数组-array" class="headerlink" title="定义数组 array()"></a>定义数组 array()</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$array = <span class="keyword">array</span>(</div><div class="line">    <span class="string">"foo"</span> =&gt; <span class="string">"bar"</span>,</div><div class="line">    <span class="string">"bar"</span> =&gt; <span class="string">"foo"</span>,</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">// 自 PHP 5.4 起</span></div><div class="line">$array = [</div><div class="line">    <span class="string">"foo"</span> =&gt; <span class="string">"bar"</span>,</div><div class="line">    <span class="string">"bar"</span> =&gt; <span class="string">"foo"</span>,</div><div class="line">];</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p><code>key</code> 可以是 <code>integer</code> 或者 <code>string</code>。<code>value</code> 可以是任意类型。</p>
+<p>此外 <code>key</code> 会有如下的强制转换：</p>
+<ul>
+<li>包含有合法整型值的字符串会被转换为整型。例如键名<code>&quot;8&quot;</code> 实际会被储存为 <code>8</code>。但是 <code>&quot;08&quot;</code> 则不会强制转换，因为其不是一个合法的十进制数值。</li>
+<li>浮点数也会被转换为整型，意味着其小数部分会被舍去。例如键名<code>8.7</code> 实际会被储存为 <code>8</code>。</li>
+<li>布尔值也会被转换成整型。即键名 <code>true</code> 实际会被储存为 <code>1</code> 而键名 <code>false</code> 会被储存为 <code>0</code>。</li>
+<li><code>Null</code> 会被转换为空字符串，即键名 <code>null</code> 实际会被储存为 <code>&quot;&quot;</code>。</li>
+<li>数组和对象不能被用为键名。坚持这么做会导致警告：<code>Illegal offset type</code>。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/15/PHP类型-下篇/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/PHP类型-上篇/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gasbylei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://gasbylei.github.io/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EasyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/15/PHP类型-上篇/" itemprop="url">
+                  PHP类型(上篇)
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T18:53:07+08:00">
+                2017-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>本文内容来自<a href="http://php.net/manual/zh/language.types.php">PHP手册</a></p>
+</blockquote>
+<h1 id="PHP类型-上篇"><a href="#PHP类型-上篇" class="headerlink" title="PHP类型(上篇)"></a>PHP类型(上篇)</h1><p>PHP 支持 9 种原始数据类型。</p>
+<p>四种标量类型：</p>
+<ul>
+<li>boolean(布尔型)</li>
+<li>integer(整型)</li>
+<li>float(浮点型，也称double)</li>
+<li>string(字符串)</li>
+</ul>
+<p>三种复合类型：</p>
+<ul>
+<li>array(数组)</li>
+<li>object(对象)</li>
+<li>callable(可调用的)</li>
+</ul>
+<p>最后是两种特殊类型：</p>
+<ul>
+<li>resource(资源)</li>
+<li>Null(无类型)</li>
+</ul>
+<h3 id="布尔类型Boolean"><a href="#布尔类型Boolean" class="headerlink" title="布尔类型Boolean"></a>布尔类型Boolean</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>要指定一个布尔值，<strong>True</strong>或<strong>False</strong>，不区分大小写。<br>简介写法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// == 是一个操作符，它检测两个变量是否相等，并返回一个布尔值</span></div><div class="line"><span class="keyword">if</span> ($action == <span class="string">"show_version"</span>) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"The version is 1.23"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 这样做是不必要的...</span></div><div class="line"><span class="keyword">if</span> ($show_separators == <span class="keyword">TRUE</span>) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"&lt;hr&gt;\n"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// ...因为可以使用下面这种简单的方式：</span></div><div class="line"><span class="keyword">if</span> ($show_separators) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"&lt;hr&gt;\n"</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="转换为布尔值"><a href="#转换为布尔值" class="headerlink" title="转换为布尔值"></a>转换为布尔值</h4><p>要将一个值转换成boolean时，用（bool）或者（boolean）来强制转换。但通常不用强制转换，<strong>当运算符，函数流程控制结构需要boolean参数时，该值会被自动转换。</strong></p>
+<p>转换为boolean时，以下值被认为是False：</p>
+<ul>
+<li>布尔值 FALSE 本身</li>
+<li>整型值 0（零）</li>
+<li>浮点型值 0.0（零）</li>
+<li>空字符串，以及字符串 “0”</li>
+<li>不包括任何元素的数组</li>
+<li>特殊类型 NULL（包括尚未赋值的变量）</li>
+<li>从空标记生成的 SimpleXML 对象</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">var_dump((bool) <span class="string">""</span>);        <span class="comment">// bool(false)</span></div><div class="line">var_dump((bool) <span class="number">1</span>);         <span class="comment">// bool(true)</span></div><div class="line">var_dump((bool) <span class="number">-2</span>);        <span class="comment">// bool(true)</span></div><div class="line">var_dump((bool) <span class="string">"foo"</span>);     <span class="comment">// bool(true)</span></div><div class="line">var_dump((bool) <span class="number">2.3e5</span>);     <span class="comment">// bool(true)</span></div><div class="line">var_dump((bool) <span class="keyword">array</span>(<span class="number">12</span>)); <span class="comment">// bool(true)</span></div><div class="line">var_dump((bool) <span class="keyword">array</span>());   <span class="comment">// bool(false)</span></div><div class="line">var_dump((bool) <span class="string">"false"</span>);   <span class="comment">// bool(true)</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// Consider that the 0 could by any parameters including itself</span></div><div class="line">var_dump(<span class="number">0</span> == <span class="number">1</span>); <span class="comment">// false</span></div><div class="line">var_dump(<span class="number">0</span> == (bool)<span class="string">'all'</span>); <span class="comment">// false</span></div><div class="line">var_dump(<span class="number">0</span> == <span class="string">'all'</span>); <span class="comment">// TRUE, take care</span></div><div class="line">var_dump(<span class="number">0</span> === <span class="string">'all'</span>); <span class="comment">// false</span></div><div class="line"></div><div class="line"><span class="comment">// To avoid this behavior, you need to cast your parameter as string like that :</span></div><div class="line">var_dump((string)<span class="number">0</span> == <span class="string">'all'</span>); <span class="comment">// false</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/15/PHP类型-上篇/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/Laravel-Notifications实现站内信通知/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1310,279 +1603,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/06/在mac上如何使用docker安装oracle-11g/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gasbylei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://gasbylei.github.io/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EasyBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/06/在mac上如何使用docker安装oracle-11g/" itemprop="url">
-                  在mac上如何使用docker安装oracle 11g?
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-06T12:58:36+08:00">
-                2017-03-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1.在docker官网下载安装: <a href="https://www.docker.com/docker-mac" target="_blank" rel="external">docker for Mac</a></p>
-<p>2.打开doker，配置国内加速器，例如：<br><a href="https://www.daocloud.io/mirror#accelerator-doc" target="_blank" rel="external">Daocloud加速器</a><br>添加到advanced/registry mirrors</p>
-<p>3.测试docker：</p>
-<p><code>docker ps</code>查看当前容器</p>
-<p><code>docker run hello-world</code> 出现hello，world则成功。</p>
-<p>4.安装oracle 11g:</p>
-<p>github地址：<a href="https://github.com/wnameless/docker-oracle-xe-11g" target="_blank" rel="external">wnameless/oracle-xe-11g</a><br><code>docker pull wnameless/oracle-xe-11g</code></p>
-<p>5.运行oracle:</p>
-<p>首先运行oralce镜像,创建一个新的容器<br><code>docker run -d -p 49160:22 -p 49161:1521 wnameless/oracle-xe-11g</code></p>
-<p>如果要远程连接数据库：<br><code>docker run -d -p 49160:22 -p 49161:1521 -e ORACLE_ALLOW_REMOTE=true wnameless/oracle-xe-11g</code></p>
-<p>进入容器中<br><code>docker exec -it &lt;name&gt; bash (name= ContainerID)</code></p>
-<p>创建完容器，每次打开及关闭容器命令：</p>
-<p><code>Docker start  &lt;name&gt;</code></p>
-<p><code>Docker stop &lt;name&gt;</code></p>
-<p>连接数据库命令：<br><code>sqlplus system/oracle</code></p>
-<p>连接数据库的基本设置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">hostname: localhost</div><div class="line">port: 49161</div><div class="line">sid: xe</div><div class="line">username: system</div><div class="line">password: oracle</div></pre></td></tr></table></figure>
-<p>Password for SYS &amp; SYSTEM</p>
-<p><code>oracle</code></p>
-<p>Login by SSH</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh root@localhost -p 49160</div><div class="line">password: admin</div></pre></td></tr></table></figure>
-<p>Docker 常用命令：</p>
-<p><code>docker info</code> 查看docker信息</p>
-<p><code>Docker ps</code> 查看当前容器  后面加上<code>-a</code>查看所有容器</p>
-<p><code>docker rm</code> 删除容器</p>
-<p><code>docker images</code> 查看所有镜像</p>
-<p><code>docker rmi</code> 删除镜像</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/06/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gasbylei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://gasbylei.github.io/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EasyBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/06/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-06T12:46:08+08:00">
-                2017-03-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
           
           </div>
@@ -1625,7 +1652,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

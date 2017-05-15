@@ -1,0 +1,865 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="PHP," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文内容来自PHP手册
+
+PHP类型(上篇)PHP 支持 9 种原始数据类型。
+四种标量类型：
+
+boolean(布尔型)
+integer(整型)
+float(浮点型，也称double)
+string(字符串)
+
+三种复合类型：
+
+array(数组)
+object(对象)
+callable(可调用的)
+
+最后是两种特殊类型：
+
+resource(资源)
+Null(无类型)
+
+布尔类型Boolea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP类型(上篇)">
+<meta property="og:url" content="http://yoursite.com/2017/05/15/PHP类型-上篇/index.html">
+<meta property="og:site_name" content="EasyBlog">
+<meta property="og:description" content="本文内容来自PHP手册
+
+PHP类型(上篇)PHP 支持 9 种原始数据类型。
+四种标量类型：
+
+boolean(布尔型)
+integer(整型)
+float(浮点型，也称double)
+string(字符串)
+
+三种复合类型：
+
+array(数组)
+object(对象)
+callable(可调用的)
+
+最后是两种特殊类型：
+
+resource(资源)
+Null(无类型)
+
+布尔类型Boolea">
+<meta property="og:updated_time" content="2017-05-15T11:03:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP类型(上篇)">
+<meta name="twitter:description" content="本文内容来自PHP手册
+
+PHP类型(上篇)PHP 支持 9 种原始数据类型。
+四种标量类型：
+
+boolean(布尔型)
+integer(整型)
+float(浮点型，也称double)
+string(字符串)
+
+三种复合类型：
+
+array(数组)
+object(对象)
+callable(可调用的)
+
+最后是两种特殊类型：
+
+resource(资源)
+Null(无类型)
+
+布尔类型Boolea">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/15/PHP类型-上篇/"/>
+
+
+
+
+
+  <title> PHP类型(上篇) | EasyBlog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">EasyBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/PHP类型-上篇/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gasbylei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://gasbylei.github.io/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EasyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                PHP类型(上篇)
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T18:53:07+08:00">
+                2017-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文内容来自<a href="http://php.net/manual/zh/language.types.php" target="_blank" rel="external">PHP手册</a></p>
+</blockquote>
+<h1 id="PHP类型-上篇"><a href="#PHP类型-上篇" class="headerlink" title="PHP类型(上篇)"></a>PHP类型(上篇)</h1><p>PHP 支持 9 种原始数据类型。</p>
+<p>四种标量类型：</p>
+<ul>
+<li>boolean(布尔型)</li>
+<li>integer(整型)</li>
+<li>float(浮点型，也称double)</li>
+<li>string(字符串)</li>
+</ul>
+<p>三种复合类型：</p>
+<ul>
+<li>array(数组)</li>
+<li>object(对象)</li>
+<li>callable(可调用的)</li>
+</ul>
+<p>最后是两种特殊类型：</p>
+<ul>
+<li>resource(资源)</li>
+<li>Null(无类型)</li>
+</ul>
+<h3 id="布尔类型Boolean"><a href="#布尔类型Boolean" class="headerlink" title="布尔类型Boolean"></a>布尔类型Boolean</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p>要指定一个布尔值，<strong>True</strong>或<strong>False</strong>，不区分大小写。<br>简介写法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// == 是一个操作符，它检测两个变量是否相等，并返回一个布尔值</span></div><div class="line"><span class="keyword">if</span> ($action == <span class="string">"show_version"</span>) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"The version is 1.23"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 这样做是不必要的...</span></div><div class="line"><span class="keyword">if</span> ($show_separators == <span class="keyword">TRUE</span>) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"&lt;hr&gt;\n"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// ...因为可以使用下面这种简单的方式：</span></div><div class="line"><span class="keyword">if</span> ($show_separators) &#123;</div><div class="line">    <span class="keyword">echo</span> <span class="string">"&lt;hr&gt;\n"</span>;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="转换为布尔值"><a href="#转换为布尔值" class="headerlink" title="转换为布尔值"></a>转换为布尔值</h4><p>要将一个值转换成boolean时，用（bool）或者（boolean）来强制转换。但通常不用强制转换，<strong>当运算符，函数流程控制结构需要boolean参数时，该值会被自动转换。</strong></p>
+<p>转换为boolean时，以下值被认为是False：</p>
+<ul>
+<li>布尔值 FALSE 本身</li>
+<li>整型值 0（零）</li>
+<li>浮点型值 0.0（零）</li>
+<li>空字符串，以及字符串 “0”</li>
+<li>不包括任何元素的数组</li>
+<li>特殊类型 NULL（包括尚未赋值的变量）</li>
+<li>从空标记生成的 SimpleXML 对象</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">var_dump((bool) <span class="string">""</span>);        <span class="comment">// bool(false)</span></div><div class="line">var_dump((bool) <span class="number">1</span>);         <span class="comment">// bool(true)</span></div><div class="line">var_dump((bool) <span class="number">-2</span>);        <span class="comment">// bool(true)</span></div><div class="line">var_dump((bool) <span class="string">"foo"</span>);     <span class="comment">// bool(true)</span></div><div class="line">var_dump((bool) <span class="number">2.3e5</span>);     <span class="comment">// bool(true)</span></div><div class="line">var_dump((bool) <span class="keyword">array</span>(<span class="number">12</span>)); <span class="comment">// bool(true)</span></div><div class="line">var_dump((bool) <span class="keyword">array</span>());   <span class="comment">// bool(false)</span></div><div class="line">var_dump((bool) <span class="string">"false"</span>);   <span class="comment">// bool(true)</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// Consider that the 0 could by any parameters including itself</span></div><div class="line">var_dump(<span class="number">0</span> == <span class="number">1</span>); <span class="comment">// false</span></div><div class="line">var_dump(<span class="number">0</span> == (bool)<span class="string">'all'</span>); <span class="comment">// false</span></div><div class="line">var_dump(<span class="number">0</span> == <span class="string">'all'</span>); <span class="comment">// TRUE, take care</span></div><div class="line">var_dump(<span class="number">0</span> === <span class="string">'all'</span>); <span class="comment">// false</span></div><div class="line"></div><div class="line"><span class="comment">// To avoid this behavior, you need to cast your parameter as string like that :</span></div><div class="line">var_dump((string)<span class="number">0</span> == <span class="string">'all'</span>); <span class="comment">// false</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="整型Integer"><a href="#整型Integer" class="headerlink" title="整型Integer"></a>整型Integer</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><p>整型值可以使用十进制，十六进制，八进制或二进制表示，前面可以加上可选的符号（- 或者 +）。<br>要使用八进制表达，数字前必须加上 0（零）。要使用十六进制表达，数字前必须加上 0x。要使用二进制表达，数字前必须加上 0b。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$a = <span class="number">1234</span>; <span class="comment">// 十进制数</span></div><div class="line">$a = <span class="number">-123</span>; <span class="comment">// 负数</span></div><div class="line">$a = <span class="number">0123</span>; <span class="comment">// 八进制数 (等于十进制 83)</span></div><div class="line">$a = <span class="number">0x1A</span>; <span class="comment">// 十六进制数 (等于十进制 26)</span></div><div class="line">$a = <span class="number">0b11111111</span>; <span class="comment">// 二进制数字 (等于十进制 255)</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>整型数的字长和平台有关，尽管通常最大值是大约二十亿（32 位有符号）。64 位平台下的最大值通常是大约 9E18，除了 Windows 下 PHP 7 以前的版本，总是 32 位的。 PHP 不支持无符号的 integer。<code>Integer</code> 值的字长可以用常量 <code>PHP_INT_SIZE</code>来表示，自 PHP 4.4.0 和 PHP 5.0.5后，最大值可以用常量 <code>PHP_INT_MAX</code> 来表示，最小值可以在 PHP 7.0.0 及以后的版本中用常量 <code>PHP_INT_MIN</code> 表示</p>
+<blockquote>
+<p>Warning PHP 7 以前的版本里，如果向八进制数传递了一个非法数字（即 8 或 9），则后面其余数字会被忽略。PHP 7 以后，会产生 Parse Error。</p>
+</blockquote>
+<h4 id="整数溢出"><a href="#整数溢出" class="headerlink" title="整数溢出"></a>整数溢出</h4><p>若给定的一个数超出了<code>Integer</code>的范围，将会被解释为<code>float</code>。<br>eg，64位系统下的整数溢出</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$large_number = <span class="number">9223372036854775807</span>;</div><div class="line">var_dump($large_number);                     <span class="comment">// int(9223372036854775807)</span></div><div class="line"></div><div class="line">$large_number = <span class="number">9223372036854775808</span>;</div><div class="line">var_dump($large_number);                     <span class="comment">// float(9.2233720368548E+18)</span></div><div class="line"></div><div class="line">$million = <span class="number">1000000</span>;</div><div class="line">$large_number =  <span class="number">50000000000000</span> * $million;</div><div class="line">var_dump($large_number);                     <span class="comment">// float(5.0E+19)</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>PHP 中没有整除的运算符。1/2 产生出 <code>float 0.5</code>。 值可以舍弃小数部分，强制转换为 <code>integer</code>，或者使用 <code>round()</code> 函数可以更好地进行四舍五入。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">var_dump(<span class="number">25</span>/<span class="number">7</span>);         <span class="comment">// float(3.5714285714286) </span></div><div class="line">var_dump((int) (<span class="number">25</span>/<span class="number">7</span>)); <span class="comment">// int(3)</span></div><div class="line">var_dump(round(<span class="number">25</span>/<span class="number">7</span>));  <span class="comment">// float(4) </span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="转换为整型"><a href="#转换为整型" class="headerlink" title="转换为整型"></a>转换为整型</h4><p>要明确地将一个值转换为 <code>integer</code>，用 <code>(int)</code>或 <code>(integer)</code> 强制转换。不过大多数情况下都不需要强制转换，因为当运算符，函数或流程控制需要一个 <code>integer</code> 参数时，值会自动转换。还可以通过函数 <code>intval()</code> 来将一个值转换成整型。</p>
+<h5 id="从布尔值转换"><a href="#从布尔值转换" class="headerlink" title="从布尔值转换"></a>从布尔值转换</h5><p><strong>FALSE</strong> 将产生出 0（零），<strong>TRUE</strong> 将产生出 1（壹）。</p>
+<h5 id="从浮点型转换"><a href="#从浮点型转换" class="headerlink" title="从浮点型转换"></a>从浮点型转换</h5><p>当从浮点数转换成整数时，将向下取整。</p>
+<p>如果浮点数超出了整数范围（32 位平台下通常为 +/- 2.15e+9 = 2^31，64 位平台下，除了 Windows，通常为 +/- 9.22e+18 = 2^63），则结果为未定义，因为没有足够的精度给出一个确切的整数结果。在此情况下没有警告，甚至没有任何通知！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Note:</div><div class="line">PHP 7.0.0 起，NaN 和 Infinity 在转换成 integer 时，不再是 undefined 或者依赖于平台，而是都会变成零。</div></pre></td></tr></table></figure>
+<p>绝不要将未知的分数强制转换为 <code>integer</code>，这样有时会导致不可预料的结果。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">echo</span> (int) ( (<span class="number">0.1</span>+<span class="number">0.7</span>) * <span class="number">10</span> ); <span class="comment">// 显示 7!</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Float浮点型"><a href="#Float浮点型" class="headerlink" title="Float浮点型"></a>Float浮点型</h3><p>浮点型（也叫浮点数 float，双精度数 double 或实数 real）可以用以下任一语法定义：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$a = <span class="number">1.234</span>; </div><div class="line">$b = <span class="number">1.2e3</span>; </div><div class="line">$c = <span class="number">7E-10</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>永远不要相信浮点数结果精确到了最后一位，也永远不要比较两个浮点数是否相等。如果确实需要更高的精度，应该使用任意精度数学函数或者 gmp 函数。</strong></p>
+<h3 id="String字符串"><a href="#String字符串" class="headerlink" title="String字符串"></a>String字符串</h3><p>一个字符串 <code>string</code> 就是由一系列的字符组成，其中每个字符等同于一个字节。这意味着 PHP 只能支持 256 的字符集，因此不支持<code>Unicode</code> 。详见字符串类型详解。</p>
+<h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><p>一个字符串可以用 4 种方式表达：</p>
+<ul>
+<li>单引号</li>
+<li>双引号</li>
+<li>heredoc 语法结构</li>
+<li>nowdoc 语法结构（自 PHP 5.3.0 起）</li>
+</ul>
+<h5 id="单引号"><a href="#单引号" class="headerlink" title="单引号"></a>单引号</h5><p>定义一个字符串的最简单的方法是用单引号把它包围起来（字符 ‘）。<br>要表达一个单引号自身，需在它的前面加个反斜线（\）来转义。要表达一个反斜线自身，则用两个反斜线（\）。其它任何方式的反斜线都会被当成反斜线本身：也就是说如果想使用其它转义序列例如 \r 或者 \n，并不代表任何特殊含义，就单纯是这两个字符本身。</p>
+<blockquote>
+<p>Note: 不像双引号和 heredoc 语法结构，在单引号字符串中的变量和特殊字符的转义序列将不会被替换。</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">echo</span> <span class="string">'this is a simple string'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 可以录入多行</span></div><div class="line"><span class="keyword">echo</span> <span class="string">'You can also have embedded newlines in </span></div><div class="line">strings this way as it is</div><div class="line">okay to do';</div><div class="line"></div><div class="line"><span class="comment">// 输出： Arnold once said: "I'll be back"</span></div><div class="line"><span class="keyword">echo</span> <span class="string">'Arnold once said: "I\'ll be back"'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 输出： You deleted C:\*.*?</span></div><div class="line"><span class="keyword">echo</span> <span class="string">'You deleted C:\\*.*?'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 输出： You deleted C:\*.*?</span></div><div class="line"><span class="keyword">echo</span> <span class="string">'You deleted C:\*.*?'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 输出： This will not expand: \n a newline</span></div><div class="line"><span class="keyword">echo</span> <span class="string">'This will not expand: \n a newline'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 输出： Variables do not $expand $either</span></div><div class="line"><span class="keyword">echo</span> <span class="string">'Variables do not $expand $either'</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="双引号"><a href="#双引号" class="headerlink" title="双引号"></a>双引号</h5><p>如果字符串是包围在双引号（”）中， PHP 将对一些特殊的字符进行解析：</p>
+<h5 id="Heredoc-结构"><a href="#Heredoc-结构" class="headerlink" title="Heredoc 结构"></a>Heredoc 结构</h5><p>第三种表达字符串的方法是用 heredoc 句法结构：&lt;&lt;&lt;。在该运算符之后要提供一个标识符，然后换行。接下来是字符串 string 本身，最后要用前面定义的标识符作为结束标志。</p>
+<p>结束时所引用的标识符必须在该行的第一列，而且，标识符的命名也要像其它标签一样遵守 PHP 的规则：只能包含字母、数字和下划线，并且必须以字母和下划线作为开头。<br>Heredoc 结构的字符串示例:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$str = <span class="string">&lt;&lt;&lt;EOD</span></div><div class="line">Example of string</div><div class="line">spanning multiple lines</div><div class="line">using heredoc syntax.</div><div class="line">EOD;</div><div class="line"></div><div class="line"><span class="comment">/* 含有变量的更复杂示例 */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">foo</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">var</span> $foo;</div><div class="line">    <span class="keyword">var</span> $bar;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">$this</span>-&gt;foo = <span class="string">'Foo'</span>;</div><div class="line">        <span class="keyword">$this</span>-&gt;bar = <span class="keyword">array</span>(<span class="string">'Bar1'</span>, <span class="string">'Bar2'</span>, <span class="string">'Bar3'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$foo = <span class="keyword">new</span> foo();</div><div class="line">$name = <span class="string">'MyName'</span>;</div><div class="line"></div><div class="line"><span class="keyword">echo</span> <span class="string">&lt;&lt;&lt;EOT</span></div><div class="line">My name is "<span class="subst">$name</span>". I am printing some <span class="subst">$foo</span>-&gt;foo.</div><div class="line">Now, I am printing some <span class="subst">&#123;$foo-&gt;bar[1]&#125;</span>.</div><div class="line">This should print a capital 'A': \x41</div><div class="line">EOT;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>以上例子会输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">My name is &quot;MyName&quot;. I am printing some Foo.</div><div class="line">Now, I am printing some Bar2.</div><div class="line">This should print a capital &apos;A&apos;: A</div></pre></td></tr></table></figure>
+<h4 id="Nowdoc-结构"><a href="#Nowdoc-结构" class="headerlink" title="Nowdoc 结构"></a>Nowdoc 结构</h4><p>就象 heredoc 结构类似于双引号字符串，Nowdoc 结构是类似于单引号字符串的。Nowdoc 结构很象 heredoc 结构，但是 nowdoc 中不进行解析操作。这种结构很适合用于嵌入 PHP 代码或其它大段文本而无需对其中的特殊字符进行转义。与 SGML 的 &lt;![CDATA[ ]]&gt; 结构是用来声明大段的不用解析的文本类似，nowdoc 结构也有相同的特征。</p>
+<p>一个 nowdoc 结构也用和 heredocs 结构一样的标记 &lt;&lt;&lt;， 但是跟在后面的标识符要用单引号括起来，即 &lt;&lt;&lt;’EOT’。Heredoc 结构的所有规则也同样适用于 nowdoc 结构，尤其是结束标识符的规则。</p>
+<h4 id="变量解析"><a href="#变量解析" class="headerlink" title="变量解析"></a>变量解析</h4><p>当字符串用双引号或 heredoc 结构定义时，其中的变量将会被解析。</p>
+<p>这里共有两种语法规则：一种简单规则，一种复杂规则。简单的语法规则是最常用和最方便的，它可以用最少的代码在一个 string 中嵌入一个变量，一个 array 的值，或一个 object 的属性。</p>
+<p>复杂规则语法的显著标记是用花括号包围的表达式。</p>
+<h5 id="简单语法"><a href="#简单语法" class="headerlink" title="简单语法"></a>简单语法</h5><p>当 PHP 解析器遇到一个美元符号（$）时，它会和其它很多解析器一样，去组合尽量多的标识以形成一个合法的变量名。可以用花括号来明确变量名的界线。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$juice = <span class="string">"apple"</span>;</div><div class="line"></div><div class="line"><span class="keyword">echo</span> <span class="string">"He drank some $juice juice."</span>.PHP_EOL;</div><div class="line"><span class="comment">// Invalid. "s" is a valid character for a variable name, but the variable is $juice.</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"He drank some juice made of $juices."</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>以上输出:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">He drank some apple juice.</div><div class="line">He drank some juice made of .</div></pre></td></tr></table></figure>
+<p>类似的，一个 array 索引或一个 object 属性也可被解析。数组索引要用方括号（]）来表示索引结束的边际，对象属性则是和上述的变量规则相同。</p>
+<h5 id="复杂（花括号）语法"><a href="#复杂（花括号）语法" class="headerlink" title="复杂（花括号）语法"></a>复杂（花括号）语法</h5><p>复杂语法不是因为其语法复杂而得名，而是因为它可以使用复杂的表达式。</p>
+<p>任何具有 string 表达的标量变量，数组单元或对象属性都可使用此语法。只需简单地像在 string 以外的地方那样写出表达式，然后用花括号 { 和 } 把它括起来即可。由于 { 无法被转义，只有 $ 紧挨着 { 时才会被识别。可以用 {\$ 来表达 {$。下面的示例可以更好的解释：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">// 显示所有错误</span></div><div class="line">error_reporting(E_ALL);</div><div class="line"></div><div class="line">$great = <span class="string">'fantastic'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 无效，输出: This is &#123; fantastic&#125;</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"This is &#123; $great&#125;"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 有效，输出： This is fantastic</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"This is &#123;$great&#125;"</span>;</div><div class="line"><span class="keyword">echo</span> <span class="string">"This is $&#123;great&#125;"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 有效</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"This square is &#123;$square-&gt;width&#125;00 centimeters broad."</span>; </div><div class="line"></div><div class="line"><span class="comment">// 有效，只有通过花括号语法才能正确解析带引号的键名</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"This works: &#123;$arr['key']&#125;"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 有效</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"This works: &#123;$arr[4][3]&#125;"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 这是错误的表达式，因为就象 $foo[bar] 的格式在字符串以外也是错的一样。</span></div><div class="line"><span class="comment">// 换句话说，只有在 PHP 能找到常量 foo 的前提下才会正常工作；这里会产生一个</span></div><div class="line"><span class="comment">// E_NOTICE (undefined constant) 级别的错误。</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"This is wrong: &#123;$arr[foo][3]&#125;"</span>; </div><div class="line"></div><div class="line"><span class="comment">// 有效，当在字符串中使用多重数组时，一定要用括号将它括起来</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"This works: &#123;$arr['foo'][3]&#125;"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 有效</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"This works: "</span> . $arr[<span class="string">'foo'</span>][<span class="number">3</span>];</div><div class="line"></div><div class="line"><span class="keyword">echo</span> <span class="string">"This works too: &#123;$obj-&gt;values[3]-&gt;name&#125;"</span>;</div><div class="line"></div><div class="line"><span class="keyword">echo</span> <span class="string">"This is the value of the var named $name: &#123;$&#123;$name&#125;&#125;"</span>;</div><div class="line"></div><div class="line"><span class="keyword">echo</span> <span class="string">"This is the value of the var named by the return value of getName(): &#123;$&#123;getName()&#125;&#125;"</span>;</div><div class="line"></div><div class="line"><span class="keyword">echo</span> <span class="string">"This is the value of the var named by the return value of \$object-&gt;getName(): &#123;$&#123;$object-&gt;getName()&#125;&#125;"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 无效，输出： This is the return value of getName(): &#123;getName()&#125;</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"This is the return value of getName(): &#123;getName()&#125;"</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="存取和修改字符串中的字符"><a href="#存取和修改字符串中的字符" class="headerlink" title="存取和修改字符串中的字符"></a>存取和修改字符串中的字符</h5><p><code>string</code> 中的字符可以通过一个从 0 开始的下标，用类似 <code>array</code> 结构中的方括号包含对应的数字来访问和修改，比如 <code>$str[42]</code>。可以把 <code>string</code> 当成字符组成的 <code>array</code>。函数<code>substr()</code> 和 <code>substr_replace()</code>可用于操作多于一个字符的情况。</p>
+<h4 id="有用的函数和运算符"><a href="#有用的函数和运算符" class="headerlink" title="有用的函数和运算符"></a>有用的函数和运算符</h4><p>字符串可以用 <code>&#39;.&#39;（点）</code>运算符连接起来，注意 <code>&#39;+&#39;（加号）</code>运算符没有这个功能。</p>
+<h4 id="转换成字符串"><a href="#转换成字符串" class="headerlink" title="转换成字符串"></a>转换成字符串</h4><p>一个值可以通过在其前面加上 (string) 或用 strval() 函数来转变成字符串。在一个需要字符串的表达式中，会自动转换为 string。比如在使用函数 echo 或 print 时，或在一个变量和一个 string 进行比较时，就会发生这种转换。类型和类型转换可以更好的解释下面的事情，也可参考函数 <code>settype()</code>。</p>
+<p>一个布尔值 boolean 的 <strong>TRUE</strong> 被转换成 string 的 “1”。Boolean 的 <strong>FALSE</strong> 被转换成 “”（空字符串）。这种转换可以在 boolean 和 string 之间相互进行。</p>
+<p>一个整数 integer 或浮点数 float 被转换为数字的字面样式的 string（包括 float 中的指数部分）。使用指数计数法的浮点数（4.1E+6）也可转换。</p>
+<p>数组 array 总是转换成字符串 “Array”，因此，echo 和 print 无法显示出该数组的内容。要显示某个单元，可以用 <code>echo $arr[&#39;foo&#39;]</code> 这种结构。要显示整个数组内容见下文。</p>
+<p>在 PHP 4 中对象 object 总是被转换成字符串 “Object”，如果为了调试原因需要打印出对象的值，请继续阅读下文。为了得到对象的类的名称，可以用 <code>get_class()</code> 函数。自 PHP 5 起，适当时可以用<code>__toString</code>方法。</p>
+<p>资源 resource 总会被转变成 “Resource id #1” 这种结构的字符串，其中的 1 是 PHP 在运行时分配给该 resource 的唯一值。不要依赖此结构，可能会有变更。要得到一个 resource 的类型，可以用函数 <code>get_resource_type()</code>。</p>
+<p>NULL 总是被转变成空字符串。</p>
+<p>如上面所说的，直接把 array，object 或 resource 转换成 string 不会得到除了其类型之外的任何有用信息。可以使用函数 <code>print_r()</code> 和 <code>var_dump()</code> 列出这些类型的内容。</p>
+<p>大部分的 PHP 值可以转变成 <code>string</code> 来永久保存，这被称作串行化，可以用函数 <code>serialize()</code> 来实现。如果 PHP 引擎设定支持 WDDX，PHP 值也可被串行化为格式良好的 XML 文本。</p>
+<h4 id="字符串转换为数值"><a href="#字符串转换为数值" class="headerlink" title="字符串转换为数值"></a>字符串转换为数值</h4><p>当一个字符串被当作一个数值来取值，其结果和类型如下：</p>
+<p>如果该字符串没有包含 ‘.’，’e’ 或 ‘E’ 并且其数字值在整型的范围之内（由 PHP_INT_MAX 所定义），该字符串将被当成 <code>integer</code> 来取值。其它所有情况下都被作为 <code>float</code> 来取值。</p>
+<p>该字符串的开始部分决定了它的值。如果该字符串以合法的数值开始，则使用该数值。否则其值为 0（零）。合法数值由可选的正负号，后面跟着一个或多个数字（可能有小数点），再跟着可选的指数部分。指数部分由 ‘e’ 或 ‘E’ 后面跟着一个或多个数字构成。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$foo = <span class="number">1</span> + <span class="string">"10.5"</span>;                <span class="comment">// $foo is float (11.5)</span></div><div class="line">$foo = <span class="number">1</span> + <span class="string">"-1.3e3"</span>;              <span class="comment">// $foo is float (-1299)</span></div><div class="line">$foo = <span class="number">1</span> + <span class="string">"bob-1.3e3"</span>;           <span class="comment">// $foo is integer (1)</span></div><div class="line">$foo = <span class="number">1</span> + <span class="string">"bob3"</span>;                <span class="comment">// $foo is integer (1)</span></div><div class="line">$foo = <span class="number">1</span> + <span class="string">"10 Small Pigs"</span>;       <span class="comment">// $foo is integer (11)</span></div><div class="line">$foo = <span class="number">4</span> + <span class="string">"10.2 Little Piggies"</span>; <span class="comment">// $foo is float (14.2)</span></div><div class="line">$foo = <span class="string">"10.0 pigs "</span> + <span class="number">1</span>;          <span class="comment">// $foo is float (11)</span></div><div class="line">$foo = <span class="string">"10.0 pigs "</span> + <span class="number">1.0</span>;        <span class="comment">// $foo is float (11)     </span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/20/Laravel-Notifications实现站内信通知/" rel="next" title="Laravel Notifications实现站内信通知">
+                <i class="fa fa-chevron-left"></i> Laravel Notifications实现站内信通知
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/15/PHP类型-下篇/" rel="prev" title="PHP类型(下篇)">
+                PHP类型(下篇) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://gasbylei.github.io/uploads/avatar.png"
+               alt="Gasbylei" />
+          <p class="site-author-name" itemprop="name">Gasbylei</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gasbylei" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP类型-上篇"><span class="nav-number">1.</span> <span class="nav-text">PHP类型(上篇)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔类型Boolean"><span class="nav-number">1.0.1.</span> <span class="nav-text">布尔类型Boolean</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换为布尔值"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">转换为布尔值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整型Integer"><span class="nav-number">1.0.2.</span> <span class="nav-text">整型Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-1"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#整数溢出"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">整数溢出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换为整型"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">转换为整型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#从布尔值转换"><span class="nav-number">1.0.2.3.1.</span> <span class="nav-text">从布尔值转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#从浮点型转换"><span class="nav-number">1.0.2.3.2.</span> <span class="nav-text">从浮点型转换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Float浮点型"><span class="nav-number">1.0.3.</span> <span class="nav-text">Float浮点型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String字符串"><span class="nav-number">1.0.4.</span> <span class="nav-text">String字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法-2"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单引号"><span class="nav-number">1.0.4.1.1.</span> <span class="nav-text">单引号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#双引号"><span class="nav-number">1.0.4.1.2.</span> <span class="nav-text">双引号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Heredoc-结构"><span class="nav-number">1.0.4.1.3.</span> <span class="nav-text">Heredoc 结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nowdoc-结构"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">Nowdoc 结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量解析"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">变量解析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#简单语法"><span class="nav-number">1.0.4.3.1.</span> <span class="nav-text">简单语法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#复杂（花括号）语法"><span class="nav-number">1.0.4.3.2.</span> <span class="nav-text">复杂（花括号）语法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存取和修改字符串中的字符"><span class="nav-number">1.0.4.3.3.</span> <span class="nav-text">存取和修改字符串中的字符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有用的函数和运算符"><span class="nav-number">1.0.4.4.</span> <span class="nav-text">有用的函数和运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换成字符串"><span class="nav-number">1.0.4.5.</span> <span class="nav-text">转换成字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串转换为数值"><span class="nav-number">1.0.4.6.</span> <span class="nav-text">字符串转换为数值</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gasbylei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
