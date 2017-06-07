@@ -365,7 +365,7 @@ Laravel 前端API Token认证Laravel 的 API 认证提供了两种方式，一�
 <p>在<code>User.php</code>的<code>$fillable</code>字段中添加<code>api_token</code>表示其可以创建。</p>
 <h3 id="使用Vue组件，因此需要给vue发送请求时添加认证。"><a href="#使用Vue组件，因此需要给vue发送请求时添加认证。" class="headerlink" title="使用Vue组件，因此需要给vue发送请求时添加认证。"></a>使用<code>Vue</code>组件，因此需要给<code>vue</code>发送请求时添加认证。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Vue.http.interceptors.push((request, next) =&gt; &#123;</div><div class="line">request.headers.set(&apos;X-CSRF-TOKEN&apos;, Laravel.csrfToken);</div><div class="line">request.headers.set(&apos;Authorization&apos;, Laravel.apiToken);//这是添加的</div><div class="line"></div><div class="line">next();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>下面我们需要去<code>layout/app.blade.php</code>中设置 <code>Laravel.apiToken</code>，代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> &lt;script&gt;</div><div class="line">    <span class="built_in">window</span>.Laravel = &lt;?php echo json_encode([</div><div class="line">        'csrfToken' =&gt; csrf_token(),</div><div class="line">    ]); ?&gt;;</div><div class="line">    Laravel.apiToken = "&#123;&#123; Auth::check() ? 'Bearer '.Auth::user()-&gt;api_token :  'Bearer ' &#125;&#125;";</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> &lt;script&gt;</div><div class="line">    <span class="built_in">window</span>.Laravel = <span class="xml"><span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> json_encode([</span></span></div><div class="line">        <span class="string">'csrfToken'</span> =&gt; csrf_token(),</div><div class="line">    ]); <span class="meta">?&gt;</span>;</div><div class="line">    Laravel.apiToken = "&#123;&#123; Auth::check() ? 'Bearer '.Auth::user()-&gt;api_token :  'Bearer ' &#125;&#125;";</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 <p><code>Laravel.apiToken</code>先判断用户是否登录，若登录则<code>apiToken</code>为<code>Bearer +api_token</code>，反之为<code>Bearer</code>。</p>
 <p>此时，API Token认证已经完成，可以去进行测试了！</p>
 
@@ -488,7 +488,7 @@ Laravel 前端API Token认证Laravel 的 API 认证提供了两种方式，一�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -501,7 +501,7 @@ Laravel 前端API Token认证Laravel 的 API 认证提供了两种方式，一�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
