@@ -111,6 +111,7 @@
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="EasyBlog">
 <meta property="og:description" content="Do what you say,say what you do!">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EasyBlog">
 <meta name="twitter:description" content="Do what you say,say what you do!">
@@ -278,6 +279,141 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/19/Laravel简单的文件上传/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gasbylei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://gasbylei.github.io/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EasyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/19/Laravel简单的文件上传/" itemprop="url">
+                  Laravel简单的文件上传
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-19T12:25:07+08:00">
+                2017-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/19/Laravel简单的文件上传/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/19/Laravel简单的文件上传/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在项目时，需要上传图片，因此在阅读文档后，发现了laravel自带的文件系统和云存储功能，简单了解之后，上手使用，发现真的非常方便。</p>
+<p>   如何使用？</p>
+<h4 id="首先去文件系统的配置文件config-filesystems-php，进行设置要上传的路径及调用名称等。"><a href="#首先去文件系统的配置文件config-filesystems-php，进行设置要上传的路径及调用名称等。" class="headerlink" title="首先去文件系统的配置文件config/filesystems.php，进行设置要上传的路径及调用名称等。"></a>首先去文件系统的配置文件<code>config/filesystems.php</code>，进行设置要上传的路径及调用名称等。</h4><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&apos;uploads&apos; =&gt; [</div><div class="line"></div><div class="line">    &apos;driver&apos; =&gt; &apos;local&apos;,</div><div class="line">    // 文件将上传到public/uploads/avatars目录 如果需要浏览器直接访问 请设置成这个</div><div class="line">    &apos;root&apos; =&gt; public_path(&apos;uploads/avatars&apos;),</div><div class="line">],</div></pre></td></tr></table></figure>
+</code></pre><h4 id="设置完成后，现在做一个测试。新建一个form表单，表单设置为可以文件上传。"><a href="#设置完成后，现在做一个测试。新建一个form表单，表单设置为可以文件上传。" class="headerlink" title="设置完成后，现在做一个测试。新建一个form表单，表单设置为可以文件上传。"></a>设置完成后，现在做一个测试。新建一个form表单，表单设置为可以文件上传。</h4><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//在这里我因为使用了laravelcollective表单插件</div><div class="line">&#123;!! From::open([&apos;route&apos;=&gt;&apos;update&apos;, &apos;files&apos; =&gt; true])!!&#125;</div><div class="line">&#123;&#123; csrf_field() &#125;&#125;  </div><div class="line">&#123;!! Form::file(&apos;name&apos;)!!&#125;</div><div class="line">&#123;!! Form::close() !!&#125;</div></pre></td></tr></table></figure>
+</code></pre><h4 id="在控制器中处理请求。"><a href="#在控制器中处理请求。" class="headerlink" title="在控制器中处理请求。"></a>在控制器中处理请求。</h4><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"> public function uploadAvatar(Request $request)</div><div class="line">&#123;</div><div class="line">    if ($request-&gt;isMethod(&apos;post&apos;)) &#123;</div><div class="line"></div><div class="line">        $avatar = $request-&gt;file(&apos;name&apos;);</div><div class="line"></div><div class="line">         //判断文件是否上传成功  </div><div class="line">        if($file-&gt;isValid())&#123;  </div><div class="line">            //获取原文件名  </div><div class="line">            $originalName = $file-&gt;getClientOriginalName();  </div><div class="line">            //扩展名  </div><div class="line">            $ext = $file-&gt;getClientOriginalExtension();  </div><div class="line">            //文件类型  </div><div class="line">            $type = $file-&gt;getClientMimeType();  </div><div class="line">            //临时绝对路径  </div><div class="line">            $realPath = $file-&gt;getRealPath();  </div><div class="line">  </div><div class="line">            $filename = date(&apos;Y-m-d-H-i-S&apos;).&apos;-&apos;.uniqid().&apos;-&apos;.$ext;  </div><div class="line">  </div><div class="line">            $bool = Storage::disk(&apos;uploads&apos;)-&gt;put($filename, file_get_contents($realPath));  </div><div class="line">  </div><div class="line">            var_dump($bool);  </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><p> 上传文件后，返回的是布尔值，此方法完成，文件会被上传到<code>public/uploads/avatars</code>中。</p>
+<h4 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h4><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//判断文件是否存在</div><div class="line">Storage::disk(&apos;uploads&apos;)-&gt;exists($avatar);</div><div class="line">//删除文件</div><div class="line">Storage::disk(&apos;uploads&apos;)-&gt;delete($avatar);</div></pre></td></tr></table></figure>
+</code></pre><p> 对于图片的剪裁可以使用<code>intervention/image</code>这个扩展包，使用很简单。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/05/Laravel-Collection常用方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -374,7 +510,7 @@
 </blockquote>
 <p>进入tinker,我们可以用factory方法在<code>users table</code>中生成10条数据。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">factory(App\User::class,<span class="number">10</span>)-&gt;create();</div></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</div><div class="line"> * Get a list of users from the users table</div><div class="line"> */</span></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getUsers</span><span class="params">()</span></div><div class="line"></span>&#123;</div><div class="line">    $users = User::all();</div><div class="line">    dd($users);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Get a list of users from the users table</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getUsers</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    $users = User::all();</div><div class="line">    dd($users);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/05/Laravel-Collection常用方法/#more" rel="contents">
@@ -641,7 +777,7 @@
       
         
           <blockquote>
-<p>本文内容来自<a href="http://php.net/manual/zh/language.control-structures.php">PHP手册</a></p>
+<p>本文内容来自<a href="http://php.net/manual/zh/language.control-structures.php" target="_blank" rel="external">PHP手册</a></p>
 </blockquote>
 <h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><p>if 结构是很多语言包括 PHP 在内最重要的特性之一，它允许按照条件执行代码片段。PHP 的 if 结构和 C 语言相似：</p>
 <p>&lt;?php<br>if (expr)<br>  statement<br>?&gt;<br>如同在表达式一章中定义的，expr 按照布尔求值。如果 expr 的值为 TRUE，PHP 将执行 statement，如果值为 FALSE ——将忽略 statement。</p>
@@ -783,7 +919,7 @@
       
         
           <blockquote>
-<p>本文内容来自<a href="http://php.net/manual/zh/language.operators.php">PHP手册</a></p>
+<p>本文内容来自<a href="http://php.net/manual/zh/language.operators.php" target="_blank" rel="external">PHP手册</a></p>
 </blockquote>
 <p>运算符是可以通过给出的一或多个值（用编程行话来说，表达式）来产生另一个值（因而整个结构成为一个表达式）的东西。</p>
 <p>运算符可按照其能接受几个值来分组。一元运算符只能接受一个值，例如 !（逻辑取反运算符）或 ++（递增运算符）。 二元运算符可接受两个值，例如熟悉的算术运算符 +（加）和 -（减），大多数 PHP 运算符都是这种。最后是唯一的三元运算符 ? :，可接受三个值；通常就简单称之为“三元运算符”（尽管称之为条件运算符可能更合适）。</p>
@@ -924,7 +1060,7 @@
       
         
           <blockquote>
-<p>本文内容来自<a href="http://php.net/manual/zh/language.variables.php">PHP手册</a></p>
+<p>本文内容来自<a href="http://php.net/manual/zh/language.variables.php" target="_blank" rel="external">PHP手册</a></p>
 </blockquote>
 <h1 id="PHP变量"><a href="#PHP变量" class="headerlink" title="PHP变量"></a>PHP变量</h1><p>PHP 中的变量用一个美元符号后面跟变量名来表示。<strong>变量名是区分大小写的</strong>。</p>
 <p>变量名与 PHP 中其它的标签一样遵循相同的规则。一个有效的变量名由字母或者下划线开头，后面跟上任意数量的字母，数字，或者下划线。按照正常的正则表达式，它将被表述为：<code>&#39;[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*&#39;</code>。</p>
@@ -1067,7 +1203,7 @@
       
         
           <blockquote>
-<p>本文内容来自<a href="http://php.net/manual/zh/language.types.php">PHP手册</a></p>
+<p>本文内容来自<a href="http://php.net/manual/zh/language.types.php" target="_blank" rel="external">PHP手册</a></p>
 </blockquote>
 <h1 id="PHP类型-下篇"><a href="#PHP类型-下篇" class="headerlink" title="PHP类型(下篇)"></a>PHP类型(下篇)</h1><h3 id="Array-数组"><a href="#Array-数组" class="headerlink" title="Array 数组"></a>Array 数组</h3><p>PHP 中的数组实际上是一个有序映射。映射是一种把 values 关联到 keys 的类型。此类型在很多方面做了优化，因此可以把它当成真正的数组，或列表（向量），散列表（是映射的一种实现），字典，集合，栈，队列以及更多可能性。由于数组元素的值也可以是另一个数组，树形结构和多维数组也是允许的</p>
 <h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><h5 id="定义数组-array"><a href="#定义数组-array" class="headerlink" title="定义数组 array()"></a>定义数组 array()</h5><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$array = <span class="keyword">array</span>(</div><div class="line">    <span class="string">"foo"</span> =&gt; <span class="string">"bar"</span>,</div><div class="line">    <span class="string">"bar"</span> =&gt; <span class="string">"foo"</span>,</div><div class="line">);</div><div class="line"></div><div class="line"><span class="comment">// 自 PHP 5.4 起</span></div><div class="line">$array = [</div><div class="line">    <span class="string">"foo"</span> =&gt; <span class="string">"bar"</span>,</div><div class="line">    <span class="string">"bar"</span> =&gt; <span class="string">"foo"</span>,</div><div class="line">];</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
@@ -1212,7 +1348,7 @@
       
         
           <blockquote>
-<p>本文内容来自<a href="http://php.net/manual/zh/language.types.php">PHP手册</a></p>
+<p>本文内容来自<a href="http://php.net/manual/zh/language.types.php" target="_blank" rel="external">PHP手册</a></p>
 </blockquote>
 <h1 id="PHP类型-上篇"><a href="#PHP类型-上篇" class="headerlink" title="PHP类型(上篇)"></a>PHP类型(上篇)</h1><p>PHP 支持 9 种原始数据类型。</p>
 <p>四种标量类型：</p>
@@ -1380,9 +1516,9 @@
       
         
           <blockquote>
-<p>本文内容来自于JellyBool的视频，地址: <a href="https://www.laravist.com/series/build-a-zhihu-website-with-laravel/episodes/21">Laravel 实战开发知乎：站内信通知</a></p>
+<p>本文内容来自于JellyBool的视频，地址: <a href="https://www.laravist.com/series/build-a-zhihu-website-with-laravel/episodes/21" target="_blank" rel="external">Laravel 实战开发知乎：站内信通知</a></p>
 </blockquote>
-<h4 id="很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…"><a href="#很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…" class="headerlink" title="很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…"></a>很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…</h4><p>这次我们将用<strong>laravel 5.3</strong>实现关注用户消息提醒，为了更好的理解下列内容，建议去看看官方文档（<a href="http://d.laravel-china.org/docs/5.3/notifications">laravel notifications</a>）。</p>
+<h4 id="很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…"><a href="#很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…" class="headerlink" title="很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…"></a>很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…</h4><p>这次我们将用<strong>laravel 5.3</strong>实现关注用户消息提醒，为了更好的理解下列内容，建议去看看官方文档（<a href="http://d.laravel-china.org/docs/5.3/notifications" target="_blank" rel="external">laravel notifications</a>）。</p>
 <p>laravel支持多种频道发送通知，下面我将使用数据库通知。</p>
 <h4 id="创建Notification文件"><a href="#创建Notification文件" class="headerlink" title="创建Notification文件"></a>创建Notification文件</h4><p>因此这次是做关注用户消息提醒，使用下列命令创建</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan make:notification NewUserFollowNotification</div></pre></td></tr></table></figure>
@@ -1521,14 +1657,14 @@
       
         
           <blockquote>
-<p>本文内容来自于JellyBool的视频，地址: <a href="https://www.laravist.com/series/build-a-zhihu-website-with-laravel/episodes/21">Laravel 实战开发知乎：前后端分离 API token 认证 </a></p>
+<p>本文内容来自于JellyBool的视频，地址: <a href="https://www.laravist.com/series/build-a-zhihu-website-with-laravel/episodes/21" target="_blank" rel="external">Laravel 实战开发知乎：前后端分离 API token 认证 </a></p>
 </blockquote>
 <h1 id="Laravel-前端API-Token认证"><a href="#Laravel-前端API-Token认证" class="headerlink" title="Laravel 前端API Token认证"></a>Laravel 前端API Token认证</h1><p>Laravel 的 API 认证提供了两种方式，一是使用 <code>passport</code> package，二是使用 <code>token</code>来进行认证，今天使用的是<code>token</code>方式来认证。</p>
 <h3 id="查看Laravel源码TokenGuard-php可以看到"><a href="#查看Laravel源码TokenGuard-php可以看到" class="headerlink" title="查看Laravel源码TokenGuard.php可以看到"></a>查看Laravel源码<code>TokenGuard.php</code>可以看到</h3>   <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">$this</span>-&gt;inputKey = <span class="string">'api_token'</span>;</div><div class="line"><span class="keyword">$this</span>-&gt;storageKey = <span class="string">'api_token'</span>;</div></pre></td></tr></table></figure>
 <p>   laravel规定<code>inputKey</code>为<code>api_token</code>,因此我们创建为用户创建的字段名也得为<code>api_token</code>.</p>
 <h3 id="为用户表添加字段api-token"><a href="#为用户表添加字段api-token" class="headerlink" title="为用户表添加字段api_token"></a>为用户表添加字段<code>api_token</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; php artisan make:migration add_api_token_to_users --table=users</div></pre></td></tr></table></figure>
 <p>在<code>add_api_token_to_users.php</code>中修改如下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span><span class="params">()</span></div><div class="line"></span>&#123;</div><div class="line">    Schema::table(<span class="string">'users'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;string(<span class="string">'api_token'</span>,<span class="number">64</span>)-&gt;unique();</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">down</span><span class="params">()</span></div><div class="line"></span>&#123;</div><div class="line">    Schema::table(<span class="string">'users'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;dropColumn([<span class="string">'api_token'</span>]);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Schema::table(<span class="string">'users'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;string(<span class="string">'api_token'</span>,<span class="number">64</span>)-&gt;unique();</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">down</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Schema::table(<span class="string">'users'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;dropColumn([<span class="string">'api_token'</span>]);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; php artisan migrate</div></pre></td></tr></table></figure>
 <p>进行上面操作后，在user表中可以看到已经多了一个<code>api_token</code>字段。</p>
           <!--noindex-->
@@ -1538,148 +1674,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/17/Laravel-ide-helper-高效的IDE-智能提示插件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gasbylei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://gasbylei.github.io/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EasyBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/17/Laravel-ide-helper-高效的IDE-智能提示插件/" itemprop="url">
-                  Laravel-ide-helper 高效的IDE 智能提示插件
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T14:19:07+08:00">
-                2017-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/17/Laravel-ide-helper-高效的IDE-智能提示插件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/17/Laravel-ide-helper-高效的IDE-智能提示插件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>github地址:<a href="https://github.com/barryvdh/laravel-ide-helper" target="_blank" rel="external">Laravel-ide-helper</a></p>
-<h3 id="how-to-use-in-project："><a href="#how-to-use-in-project：" class="headerlink" title="how to use in project："></a>how to use in project：</h3><ol>
-<li><p>首先在项目中引入：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">composer require barryvdh/laravel-ide-helper</div></pre></td></tr></table></figure>
-</li>
-<li><p>安装完成后，在 <code>config/app.php</code> 添加以下内容到 <code>providers</code> 数组。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行下面的命令生成代码对应文档：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan ide-helper:generate</div></pre></td></tr></table></figure>
-</li>
-<li><p>将扩展包生成的相应代码结构文件，放入 <code>.gitignore</code>中</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.idea</div><div class="line">_ide_helper.php</div><div class="line">_ide_helper_models.php</div><div class="line">.phpstorm.meta.php</div></pre></td></tr></table></figure>
-</li>
-</ol>
-
-          
         
       
     </div>
@@ -1758,7 +1752,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
