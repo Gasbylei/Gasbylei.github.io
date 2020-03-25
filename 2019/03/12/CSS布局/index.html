@@ -1,0 +1,806 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文摘自： CSS布局十八般武艺都在这里了 圣杯布局与双飞翼布局 1.常用居中方法居中在布局中很常见，我们假设DOM文档结构如下，子元素要在父元素中居中： 123&amp;lt;div class=&amp;quot;parent&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;child&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt; 水平居中子元素为行内元素还是块状元素，">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS布局">
+<meta property="og:url" content="http://yoursite.com/2019/03/12/CSS布局/index.html">
+<meta property="og:site_name" content="EasyBlog">
+<meta property="og:description" content="本文摘自： CSS布局十八般武艺都在这里了 圣杯布局与双飞翼布局 1.常用居中方法居中在布局中很常见，我们假设DOM文档结构如下，子元素要在父元素中居中： 123&amp;lt;div class=&amp;quot;parent&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;child&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt; 水平居中子元素为行内元素还是块状元素，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-25T07:44:05.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS布局">
+<meta name="twitter:description" content="本文摘自： CSS布局十八般武艺都在这里了 圣杯布局与双飞翼布局 1.常用居中方法居中在布局中很常见，我们假设DOM文档结构如下，子元素要在父元素中居中： 123&amp;lt;div class=&amp;quot;parent&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;child&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt; 水平居中子元素为行内元素还是块状元素，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/12/CSS布局/"/>
+
+
+
+
+
+  <title> CSS布局 | EasyBlog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?07a6d49ae67fe991e0ce3c2f3955e0f9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">EasyBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/CSS布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gasbylei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://gasbylei.github.io/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EasyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS布局
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-12T15:35:28+08:00">
+                2019-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/12/CSS布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/12/CSS布局/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文摘自：</p>
+<p><a href="https://segmentfault.com/a/1190000008789039?utm_source=tag-newest" target="_blank" rel="external">CSS布局十八般武艺都在这里了</a></p>
+<p><a href="https://www.cnblogs.com/guchengnan/p/10011932.html" target="_blank" rel="external">圣杯布局与双飞翼布局</a></p>
+<h3 id="1-常用居中方法"><a href="#1-常用居中方法" class="headerlink" title="1.常用居中方法"></a>1.常用居中方法</h3><p>居中在布局中很常见，我们假设DOM文档结构如下，子元素要在父元素中居中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;parent&quot;&gt;</div><div class="line">    &lt;div class=&quot;child&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><p>子元素为行内元素还是块状元素，宽度一定还是宽度未定，采取的布局方案不同。下面进行分析：</p>
+<p><strong>行内元素</strong>：对父元素设置<code>text-align:center</code>;<br><strong>定宽块状元素</strong>: 设置左右<code>margin值为auto</code>;<br>优点：只需对子级标签进行设置就可以实现居中效果</p>
+<p>缺点：如果子级标签脱离文档流，将会导致margin属性值失效<br><strong>不定宽块状元素</strong>: 设置子元素为<code>display:inline-block</code>,然后在父元素上设置<code>text-align:center</code>;<br>优点：浏览器兼容性比较好，因为text-align和inline-block这两个属性是CSS2支持的，所以在老版本的浏览器中同样可以运行</p>
+<p>缺点：text-align属性具有继承性，使用它将会导致子标签的文本也是居中的，如果要解决这个问题就需要在其子标签中重新设置text-align属性，但是设置后，该标签的子标签同样会继承上一级的text-align　　</p>
+<p><strong>绝对定位元素</strong>：结合absolute和margin-left/transform实现，但是必须知道宽度。</p>
+<a id="more"></a>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">    position: relative;</div><div class="line">    width: 500px;</div><div class="line">&#125;</div><div class="line">.item &#123;</div><div class="line">    width: 300px;</div><div class="line">    height: 100px;</div><div class="line">    position: absolute;</div><div class="line">    left: 50%;</div><div class="line">    transform: translateX(-50%);/ margin-left: -150px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>　　优点：不论父级标签是否脱离了文档流，对子级标签都不会影响水平居中效果</p>
+<p>　　缺点：transform属性是CSS3中新增属性，浏览器支持情况不好<br>　　<br>   <strong>通用方案</strong>: flex布局，对父元素设置<code>display:flex;justify-content:center</code>;</p>
+<h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h4><p>垂直居中对于子元素是单行内联文本、多行内联文本以及块状元素采用的方案是不同的。<br>实现垂直居中的几种方式：</p>
+<p>　　　　1. table-cell+vertical-align 属性配合使用</p>
+<p>　　　　2. absolute+transform 属性配合使用</p>
+<p>　　　　3. display+align-items 属性配个使用</p>
+<p>　　　　4. position+margin 属性配合使用</p>
+<p><strong>父元素一定，子元素为单行内联文本</strong>：设置父元素的<code>height</code>等于行高<code>line-height</code><br><strong>父元素一定，子元素为多行内联文本</strong>：设置父元素的<code>display:table-cell</code>或<code>inline-block</code>，再设置<code>vertical-align:middle;</code><br>优点：浏览器兼容性好，支持老版本的浏览器，这两个属性在CSS2中也是支持的而老版本的浏览器对CSS2的支持非常好</p>
+<p>缺点：vertical-align属性具有继承性，这将会导致父级标签内的所有文本都是垂直居中的</p>
+<p><strong>块状元素</strong>:设置子元素<code>position:absolute</code>，然后设置<code>margin:auto;</code></p>
+<p>方法2: 块状元素定高。利用absolute + transform/margin-top</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">    position: relative;</div><div class="line">    width: 500px;</div><div class="line">&#125;</div><div class="line">.item &#123;</div><div class="line">    width: 300px;</div><div class="line">    height: 100px;</div><div class="line">    position: absolute;</div><div class="line">    top: 50%;</div><div class="line">    transform: translateY(-50%);/ margin-top: -50px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>通用方案</strong>: flex布局，给父元素设置<code>{display:flex; align-items:center;}</code>。</p>
+<h4 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h4><p>flex实现，在父元素中设置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.container &#123;</div><div class="line">      display: flex;</div><div class="line">      justify-content: center;//水平居中，根据主轴</div><div class="line">      align-items: center;//垂直居中，根据交叉轴</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-圣杯布局（float-负margin-padding-position）"><a href="#2-圣杯布局（float-负margin-padding-position）" class="headerlink" title="2. 圣杯布局（float + 负margin + padding + position）"></a>2. 圣杯布局（float + 负margin + padding + position）</h3><p>两边固定宽度，中间自适应。</p>
+<h4 id="Dom-结构"><a href="#Dom-结构" class="headerlink" title="Dom 结构"></a>Dom 结构</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"middle"</span>&gt;</span>测试测试测试测试测试测试测试测试测试测试测试测试测试测<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
+<li>设置一个容器，里面放3个盒子</li>
+<li>设置两侧盒子的固定宽度</li>
+<li>设置中间盒子的宽度等于容器的宽度(100%)</li>
+<li>设置容器的padding等于两侧盒子的宽度</li>
+<li>让三个盒子在同一方向上浮动 float:left</li>
+<li>设置左边盒子的margin-left = -100%，通过相对定位调整左边的盒子，让左边的盒子不要盖住中间的区域（position:relative; left = -左边盒子自身宽度）</li>
+<li>设置右边盒子的margin-left = -自身的宽度，通过相对定位调整右边的盒子，让右边的盒子不要盖住中间的区域（position:relative; right = -右边盒子自身宽度）</li>
+<li>给容器设置一个最小的宽度，防治缩小后变形</li>
+</ol>
+<h4 id="css实现"><a href="#css实现" class="headerlink" title="css实现"></a>css实现</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">200px</span>;</div><div class="line">  <span class="attribute">min-width</span>: <span class="number">200px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.middle</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">background</span>: paleturquoise;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.left</span>&#123;</div><div class="line">    <span class="attribute">background</span>: palevioletred;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">    <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">left</span>: -<span class="number">200px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.right</span>&#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">    <span class="attribute">background</span>: purple;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">    <span class="attribute">margin-left</span>: -<span class="number">200px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">right</span>: -<span class="number">200px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-双飞翼布局-float-负margin-margin"><a href="#3-双飞翼布局-float-负margin-margin" class="headerlink" title="3. 双飞翼布局(float + 负margin + margin)"></a>3. 双飞翼布局(float + 负margin + margin)</h3><h4 id="Dom结构"><a href="#Dom结构" class="headerlink" title="Dom结构"></a>Dom结构</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"center"</span>&gt;</span></div><div class="line">    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"left"</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"right"</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h4><ol>
+<li>搞一个容器，里面放三个盒子</li>
+<li>设置两侧盒子的宽度(固定)</li>
+<li>设置中间盒子的宽度等于容器的宽度(100%)</li>
+<li>给中间的盒子添加一个子盒子，给子盒子设置margin：0 两侧盒子的宽度</li>
+<li>让三个盒子在同一方向上浮动 float:left</li>
+<li>设置左边盒子的margin-left：-100%</li>
+<li>设置右边盒子的margin-left:-自身的宽度</li>
+</ol>
+<h4 id="css实现-1"><a href="#css实现-1" class="headerlink" title="css实现"></a>css实现</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line"><span class="attribute">min-width</span>: <span class="number">500px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#container</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">background</span>: paleturquoise;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.column</span> &#123;</div><div class="line">  <span class="attribute">float</span>: left;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#center</span> &#123;</div><div class="line">  <span class="attribute">margin-left</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">margin-right</span>: <span class="number">150px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#left</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200px</span>; </div><div class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">background</span>: palevioletred;</div><div class="line">  <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#right</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">150px</span>; </div><div class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">background</span>: purple;</div><div class="line">  <span class="attribute">margin-left</span>: -<span class="number">150px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="圣杯与双飞翼区别"><a href="#圣杯与双飞翼区别" class="headerlink" title="圣杯与双飞翼区别"></a>圣杯与双飞翼区别</h4><p>圣杯布局和双飞翼布局解决的问题是一样的，就是两边顶宽，中间自适应的三栏布局，中间栏要在放在文档流前面以优先渲染。</p>
+<p>圣杯布局和双飞翼布局解决问题的方案在前一半是相同的，也就是三栏全部float浮动，但左右两栏加上负margin让其跟中间栏div并排，以形成三栏布局。</p>
+<p>不同在于解决”<strong>中间栏div内容不被遮挡</strong>“问题的思路不一样：<br>圣杯布局，为了中间div内容不被遮挡，将父元素div设置了左右padding-left和padding-right后，将左右两个div用相对布局position: relative并分别配合right和left属性，以便左右两栏div移动后不遮挡中间div。</p>
+<p>双飞翼布局，为了中间div内容不被遮挡，直接在中间div内部创建子div用于放置内容，在该子div里用margin-left和margin-right为左右两栏div留出位置。</p>
+<h4 id="margin-padding-分别适用于什么场合？"><a href="#margin-padding-分别适用于什么场合？" class="headerlink" title="margin | padding 分别适用于什么场合？"></a>margin | padding 分别适用于什么场合？</h4><p>何时使用margin：在border外侧需要留空<br>何时使用padding：在border内侧需要留空</p>
+<p>❗ 浏览器兼容性问题：在IE5.X,IE6中，为float的盒子指定margin时，左侧margin可能会变成两倍的宽度，通过改用padding或者指定盒子为display:inline就可以解决</p>
+<h3 id="4-两栏布局"><a href="#4-两栏布局" class="headerlink" title="4.两栏布局"></a>4.两栏布局</h3><p>两栏布局（左侧宽度固定，右侧自适应），在学习的过程中总结了几种方法：</p>
+<ul>
+<li>方法一：float+margin-left</li>
+<li>方法二：absolute+margin-left</li>
+<li>方法三：float+BFC（overflow：hidden）</li>
+<li>方法四：flex布局</li>
+</ul>
+<h4 id="方法一：float-margin-left"><a href="#方法一：float-margin-left" class="headerlink" title="方法一：float+margin-left"></a>方法一：float+margin-left</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    /*清除默认格式*/</div><div class="line">    margin:0;</div><div class="line">    padding:0；</div><div class="line">&#125;</div><div class="line">.left&#123;</div><div class="line">    width:200px;</div><div class="line">    background-color:red;</div><div class="line">    float:left;</div><div class="line">&#125;</div><div class="line">.right&#123;</div><div class="line">    background-color:green;</div><div class="line">    margin-left:200px;//等于左边栏的宽度</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;div class=&quot;left&quot;&gt;</div><div class="line">    &lt;h1&gt;Left Side&lt;/h1&gt;</div><div class="line">    &lt;p&gt;我是左侧栏&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;right&quot;&gt;</div><div class="line">    &lt;h1&gt;Right Side&lt;/h1&gt;</div><div class="line">    &lt;p&gt;我是右侧栏&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h4 id="方法三：float-BFC"><a href="#方法三：float-BFC" class="headerlink" title="方法三：float+BFC"></a>方法三：float+BFC</h4><p>为左侧元素设置浮动后，左侧元素会因为浮动盖在右侧元素上，因此要将右侧元素变成BFC，BFC是一个独立的区域，不会让BFC外的元素对其内部造成干扰。当右侧元素变成一个BFC时它的元素边界会发生变化，会紧紧贴合左侧的元素。<br>常见的右侧元素设置—-overflow：hidden；</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/02/将Laravel项目部署到Heroku上/" rel="next" title="将Laravel项目部署到Heroku上">
+                <i class="fa fa-chevron-left"></i> 将Laravel项目部署到Heroku上
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://gasbylei.github.io/uploads/avatar.png"
+               alt="Gasbylei" />
+          <p class="site-author-name" itemprop="name">Gasbylei</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Gasbylei" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-常用居中方法"><span class="nav-number">1.</span> <span class="nav-text">1.常用居中方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#水平居中"><span class="nav-number">1.1.</span> <span class="nav-text">水平居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直居中"><span class="nav-number">1.2.</span> <span class="nav-text">垂直居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平垂直居中"><span class="nav-number">1.3.</span> <span class="nav-text">水平垂直居中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-圣杯布局（float-负margin-padding-position）"><span class="nav-number">2.</span> <span class="nav-text">2. 圣杯布局（float + 负margin + padding + position）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dom-结构"><span class="nav-number">2.1.</span> <span class="nav-text">Dom 结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤"><span class="nav-number">2.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css实现"><span class="nav-number">2.3.</span> <span class="nav-text">css实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-双飞翼布局-float-负margin-margin"><span class="nav-number">3.</span> <span class="nav-text">3. 双飞翼布局(float + 负margin + margin)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dom结构"><span class="nav-number">3.1.</span> <span class="nav-text">Dom结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤-1"><span class="nav-number">3.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css实现-1"><span class="nav-number">3.3.</span> <span class="nav-text">css实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#圣杯与双飞翼区别"><span class="nav-number">3.4.</span> <span class="nav-text">圣杯与双飞翼区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#margin-padding-分别适用于什么场合？"><span class="nav-number">3.5.</span> <span class="nav-text">margin | padding 分别适用于什么场合？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-两栏布局"><span class="nav-number">4.</span> <span class="nav-text">4.两栏布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一：float-margin-left"><span class="nav-number">4.1.</span> <span class="nav-text">方法一：float+margin-left</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法三：float-BFC"><span class="nav-number">4.2.</span> <span class="nav-text">方法三：float+BFC</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gasbylei</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'gatsbylei';
+      var disqus_identifier = '2019/03/12/CSS布局/';
+
+      var disqus_title = "CSS布局";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

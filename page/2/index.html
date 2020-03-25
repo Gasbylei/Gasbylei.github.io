@@ -279,6 +279,147 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/Laravel-Notifications实现站内信通知/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gasbylei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://gasbylei.github.io/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EasyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/20/Laravel-Notifications实现站内信通知/" itemprop="url">
+                  Laravel Notifications实现站内信通知
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T18:47:53+08:00">
+                2017-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/20/Laravel-Notifications实现站内信通知/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/20/Laravel-Notifications实现站内信通知/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>本文内容来自于JellyBool的视频，地址: <a href="https://www.laravist.com/series/build-a-zhihu-website-with-laravel/episodes/21" target="_blank" rel="external">Laravel 实战开发知乎：站内信通知</a></p>
+</blockquote>
+<h4 id="很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…"><a href="#很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…" class="headerlink" title="很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…"></a>很早就听说过站内信通知，一直以为实现站内通信功能应该会很困难，没有一点思路，直到遇见了Laravist…</h4><p>这次我们将用<strong>laravel 5.3</strong>实现关注用户消息提醒，为了更好的理解下列内容，建议去看看官方文档（<a href="http://d.laravel-china.org/docs/5.3/notifications" target="_blank" rel="external">laravel notifications</a>）。</p>
+<p>laravel支持多种频道发送通知，下面我将使用数据库通知。</p>
+<h4 id="创建Notification文件"><a href="#创建Notification文件" class="headerlink" title="创建Notification文件"></a>创建Notification文件</h4><p>因此这次是做关注用户消息提醒，使用下列命令创建</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan make:notification NewUserFollowNotification</div></pre></td></tr></table></figure>
+<h4 id="创建notification迁移表"><a href="#创建notification迁移表" class="headerlink" title="创建notification迁移表"></a>创建notification迁移表</h4><p>数据库通知频道在一张数据表里存储通知信息。这张表包含了比如通知类型、JSON 格式数据等描述通知的信息。</p>
+<p>你可以查询这张表的内容在应用界面上展示通知。但是在这之前，你需要先创建一个数据表来保存通知。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">php artisan notifications:table</div><div class="line"></div><div class="line">php artisan migrate</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/20/Laravel-Notifications实现站内信通知/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/18/Laravel-前端API-Token认证/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1599,7 +1740,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1665,7 +1806,7 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
